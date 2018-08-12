@@ -54,8 +54,8 @@ vertex_new(float x, float y, float z)
 PsectionEntityData *
 vertexlist_extract(const int pd_pointer, char *ps)
 {
-  int i = 0, N;
-  char *vertexlist_array[PARAM_MAX];
+  int i = 0;
+  char *vertexlist_array[PARAM_MAX] = {NULL};
   Vertex *vt = NULL;
   VertexList *vertexlist = NULL;
   PsectionEntityData * psd = NULL;
