@@ -71,7 +71,9 @@ vertexlist_extract(const int pd_pointer, char *ps)
 
   vertexlist->n = atoi(vertexlist_array[1]);
 
-  for (int x = 1, y = 0; x < N; x + 3){
+  int x = 1, y = 0;
+  while(vertexlist_array[x] != NULL)
+  {
     float x1 = utils_replace_char(vertexlist_array[x], 'D', 'E');
     float y1 = utils_replace_char(vertexlist_array[x + 1], 'D', 'E');
     float z1 = utils_replace_char(vertexlist_array[x + 2], 'D', 'E');
