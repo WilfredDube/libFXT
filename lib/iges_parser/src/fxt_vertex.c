@@ -61,7 +61,6 @@ vertexlist_extract(const int pd_pointer, char *ps)
   PsectionEntityData * psd = NULL;
 
   vertexlist_array[i] = strtok(ps, ",");
-  N = (int)vertexlist_array[i];
 
   while (vertexlist_array[i] != NULL){
     ++i;
@@ -70,7 +69,7 @@ vertexlist_extract(const int pd_pointer, char *ps)
 
   vertexlist = (VertexList *)malloc(sizeof(* vertexlist));
 
-  vertexlist->n = atoi(vertexlist_array[0]);
+  vertexlist->n = atoi(vertexlist_array[1]);
 
   for (int x = 1, y = 0; x < N; x + 3){
     float x1 = utils_replace_char(vertexlist_array[x], 'D', 'E');
