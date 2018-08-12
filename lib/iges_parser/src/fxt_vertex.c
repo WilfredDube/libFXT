@@ -83,7 +83,8 @@ vertexlist_extract(const int pd_pointer, char *ps)
     vertexlist->vertices[y] = (Vertex *)malloc(sizeof(Vertex *));
     vertexlist->vertices[y] = vt;
 
-     y++;
+    x += 3;
+    y++;
   }
 
   psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData*));
