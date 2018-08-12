@@ -34,7 +34,7 @@ utils_to_float(char *str)
 {
   return atof(str);
 }
-  
+
 /** Replaces a character in a string i.e replaces the D in an iges floating point with an E(mathematical exponent character)
 * @param str string to Process
 * @param find character to replace
@@ -42,7 +42,7 @@ utils_to_float(char *str)
 * @return floating point value of the processed string
 */
 float
-replace_char(char* str, char find, char replace)
+utils_replace_char(char* str, char find, char replace)
 {
     char *current_pos = strchr(str,find);
     while (current_pos){
