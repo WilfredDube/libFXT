@@ -30,7 +30,6 @@
 
 #define ENTITY_TYPE 504
 #define ENTITY_NAME "Edgelist"
-#define PARAM_MAX 1000
 
 /** Create a new Edge object.
 * @param model_space_curve_ptr Pointer to the DE of the first model space curve

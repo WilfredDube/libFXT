@@ -26,7 +26,6 @@
 #include "../include/fxt_color.h"
 #include "../include/fxt_parser.h"
 
-#define PARAM_MAX 5 /**< Maximum number of parameters in the PD section. */
 #define ENTITY_TYPE 314 /**< IGES Entity Type */
 #define ENTITY_NAME "Color Definition" /**< IGES Entity Name */
 

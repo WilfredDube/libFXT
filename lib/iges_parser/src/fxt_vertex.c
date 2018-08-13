@@ -30,7 +30,6 @@
 
 #define ENTITY_TYPE 502
 #define ENTITY_NAME "Vertexlist"
-#define PARAM_MAX 1000
 
 /** Create a vertex object
 * @param x value in the x-axis

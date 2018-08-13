@@ -10,6 +10,8 @@
 #include <string.h>
 #include <math.h>
 
+#define PARAM_MAX 5 /**< Maximum number of parameters in the PD section. */
+
 /* IGES specification entity types. */
 /* Point in 3-space (x,y,z) */
 typedef struct _Point Point;
