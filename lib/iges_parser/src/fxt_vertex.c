@@ -1,5 +1,5 @@
 /**
- * @file fxt_vetex.c
+ * @file fxt_vertex.c
  * @author  Wilfred Dube <wilfreddube@gmail.com>
  * @date 12 August 2018
  * @version 1.0
@@ -23,6 +23,10 @@
  */
 #include "../include/fxt_utils.h"
 #include "../include/fxt_vertex.h"
+#include "../include/fxt_parser.h"
+
+#include <stdlib.h>
+#include <string.h>
 
 #define ENTITY_TYPE 502
 #define ENTITY_NAME "Vertexlist"
@@ -52,7 +56,7 @@ vertex_new(float x, float y, float z)
 * @return pointer to the PsectionEntityData.
 */
 PsectionEntityData *
-vertexlist_extract(const int pd_pointer, char *ps)
+vertexlist_extract(const int pd_pointer, char *ps_data)
 {
   int i = 0;
   char *vertexlist_array[PARAM_MAX] = {NULL};
@@ -60,7 +64,7 @@ vertexlist_extract(const int pd_pointer, char *ps)
   VertexList *vertexlist = NULL;
   PsectionEntityData * psd = NULL;
 
-  vertexlist_array[i] = strtok(ps, ",");
+  vertexlist_array[i] = strtok(ps_data, ",");
 
   while (vertexlist_array[i] != NULL){
     ++i;
@@ -71,7 +75,7 @@ vertexlist_extract(const int pd_pointer, char *ps)
 
   vertexlist->n = atoi(vertexlist_array[1]);
 
-  int x = 1, y = 0;
+  int x = 2, y = 0;
   while(vertexlist_array[x] != NULL)
   {
     float x1 = utils_replace_char(vertexlist_array[x], 'D', 'E');
@@ -83,13 +87,13 @@ vertexlist_extract(const int pd_pointer, char *ps)
     vertexlist->vertices[y] = (Vertex *)malloc(sizeof(Vertex *));
     vertexlist->vertices[y] = vt;
 
-    x += 3;
+    x += 3; /* Jump to the next vertex */
     y++;
   }
 
   psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData*));
 
-  //psd = psection_entity_data_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, vertexlist);
+  psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, vertexlist);
 
   for (i = 0; i < PARAM_MAX; i++){
     vertexlist_array[i] = NULL;

@@ -23,6 +23,7 @@
  */
 
 #include "../include/fxt_utils.h"
+#include <stdlib.h>
 #include <string.h>
 
 /** Convert string to a int.

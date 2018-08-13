@@ -22,8 +22,9 @@
  * The Color class represents the iges color definition entity (314).
  */
 
- #include "../include/fxt_utils.h"
- #include "../include/fxt_color.h"
+#include "../include/fxt_utils.h"
+#include "../include/fxt_color.h"
+#include "../include/fxt_parser.h"
 
 #define PARAM_MAX 5 /**< Maximum number of parameters in the PD section. */
 #define ENTITY_TYPE 314 /**< IGES Entity Type */
@@ -146,7 +147,7 @@ color_by_number(const unsigned num)
 * @return pointer to the PsectionEntityData.
 */
 PsectionEntityData *
-color_extract(const int pd_pointer, char *ps, const int colornum)
+color_extract(const int pd_pointer, char *ps_data, const int colornum)
 {
   int i = 0;
   float r,g,b;
@@ -155,9 +156,9 @@ color_extract(const int pd_pointer, char *ps, const int colornum)
   Color *col = NULL;
   PsectionEntityData * psd = NULL;
 
-  if (ps != NULL) {
+  if (ps_data != NULL) {
     temp = (char *) malloc (sizeof(char *));
-    temp = strtok(ps, ",");
+    temp = strtok(ps_data, ",");
     strcpy(color_array[1], temp);
 
     while (color_array[i] != NULL){
@@ -180,7 +181,7 @@ color_extract(const int pd_pointer, char *ps, const int colornum)
 
   psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData *));
 
-  psd = psection_entity_data_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, col);
+  psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, col);
 
   return psd;
 }
