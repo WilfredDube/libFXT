@@ -73,7 +73,7 @@ vertexlist_extract(const int pd_pointer, char *ps_data)
 
   vertexlist = (VertexList *)malloc(sizeof(* vertexlist));
 
-  vertexlist->n = atoi(vertexlist_array[1]);
+  vertexlist->n = utils_to_int(vertexlist_array[1]);
 
   int x = 2, y = 0;
   while(vertexlist_array[x] != NULL)
