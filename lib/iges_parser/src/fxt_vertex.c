@@ -28,8 +28,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define ENTITY_TYPE 502
-#define ENTITY_NAME "Vertexlist"
+#define ENTITY_TYPE 502 /**< IGES Entity Type */
+#define ENTITY_NAME "Vertex List" /**< IGES Entity Name */
 
 /** Create a vertex object
 * @param x value in the x-axis
@@ -51,7 +51,7 @@ vertex_new(float x, float y, float z)
 
 /** Creates a VertexList entity object from the pd sections data.
 * @param pd_pointer key to uniquely identify each PsectionEntityData object.
-* @param ps unprocessed pd section data (0 - 64).
+* @param ps_data unprocessed pd section data (0 - 64).
 * @return pointer to the PsectionEntityData.
 */
 PsectionEntityData *

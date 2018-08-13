@@ -1,12 +1,12 @@
 \hypertarget{fxt__color_8c}{\section{fxt\-\_\-color.\-c File Reference}
 \label{fxt__color_8c}\index{fxt\-\_\-color.\-c@{fxt\-\_\-color.\-c}}
 }
-{\ttfamily \#include \char`\"{}fxt\-\_\-color.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/fxt\-\_\-utils.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/fxt\-\_\-color.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/fxt\-\_\-parser.\-h\char`\"{}}\\*
 {\ttfamily \#include $<$math.\-h$>$}\\*
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
-\item 
-\#define \hyperlink{fxt__color_8c_a9c76b8058fb0966798306d08dc0f3b48}{P\-A\-R\-A\-M\-\_\-\-M\-A\-X}~5
 \item 
 \#define \hyperlink{fxt__color_8c_a5bf9c271d3f6fe6bc944832609587a67}{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E}~314
 \item 
@@ -34,7 +34,7 @@ enum \hyperlink{fxt__color_8c_a37dbdc30935031c05304482e1be89d8f}{color} \{ \\*
 \item 
 Color $\ast$ \hyperlink{fxt__color_8c_a1c15c38e5e24d3ae0aff1b029b77e75c}{color\-\_\-by\-\_\-number} (const unsigned num)
 \item 
-Psection\-Entity\-Data $\ast$ \hyperlink{fxt__color_8c_a0ae2f3324c0fcc398dbc8563a840436a}{color\-\_\-extract} (const int pd\-\_\-pointer, char $\ast$ps, const int colornum)
+Psection\-Entity\-Data $\ast$ \hyperlink{fxt__color_8c_ad916618c5b5b8f194eff0a9610a0b7dc}{color\-\_\-extract} (const int pd\-\_\-pointer, char $\ast$ps\-\_\-data, const int colornum)
 \end{DoxyCompactItemize}
 
 
@@ -48,10 +48,10 @@ Wilfred Dube \href{mailto:wilfreddube@gmail.com}{\tt wilfreddube@gmail.\-com}
 \begin{DoxyVersion}{Version}
 1.\-0
 \end{DoxyVersion}
-\hypertarget{fxt__utils_8c_LICENSE}{}\subsection{L\-I\-C\-E\-N\-S\-E}\label{fxt__utils_8c_LICENSE}
+\hypertarget{fxt__vertex_8c_LICENSE}{}\subsection{L\-I\-C\-E\-N\-S\-E}\label{fxt__vertex_8c_LICENSE}
 This program is free software; you can redistribute it and/or modify it under the terms of the G\-N\-U General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but W\-I\-T\-H\-O\-U\-T A\-N\-Y W\-A\-R\-R\-A\-N\-T\-Y; without even the implied warranty of M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y or F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E. See the G\-N\-U General Public License for more details at \href{https://www.gnu.org/copyleft/gpl.html}{\tt https\-://www.\-gnu.\-org/copyleft/gpl.\-html}\hypertarget{fxt__utils_8c_DESCRIPTION}{}\subsection{D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}\label{fxt__utils_8c_DESCRIPTION}
+This program is distributed in the hope that it will be useful, but W\-I\-T\-H\-O\-U\-T A\-N\-Y W\-A\-R\-R\-A\-N\-T\-Y; without even the implied warranty of M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y or F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E. See the G\-N\-U General Public License for more details at \href{https://www.gnu.org/copyleft/gpl.html}{\tt https\-://www.\-gnu.\-org/copyleft/gpl.\-html}\hypertarget{fxt__vertex_8c_DESCRIPTION}{}\subsection{D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}\label{fxt__vertex_8c_DESCRIPTION}
 The Color class represents the iges color definition entity (314). 
 
 \subsection{Macro Definition Documentation}
@@ -61,10 +61,7 @@ The Color class represents the iges color definition entity (314).
 I\-G\-E\-S Entity Name \hypertarget{fxt__color_8c_a5bf9c271d3f6fe6bc944832609587a67}{\index{fxt\-\_\-color.\-c@{fxt\-\_\-color.\-c}!E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E@{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E}}
 \index{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E@{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E}!fxt_color.c@{fxt\-\_\-color.\-c}}
 \subsubsection[{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E~314}}\label{fxt__color_8c_a5bf9c271d3f6fe6bc944832609587a67}
-I\-G\-E\-S Entity Type \hypertarget{fxt__color_8c_a9c76b8058fb0966798306d08dc0f3b48}{\index{fxt\-\_\-color.\-c@{fxt\-\_\-color.\-c}!P\-A\-R\-A\-M\-\_\-\-M\-A\-X@{P\-A\-R\-A\-M\-\_\-\-M\-A\-X}}
-\index{P\-A\-R\-A\-M\-\_\-\-M\-A\-X@{P\-A\-R\-A\-M\-\_\-\-M\-A\-X}!fxt_color.c@{fxt\-\_\-color.\-c}}
-\subsubsection[{P\-A\-R\-A\-M\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-M\-A\-X~5}}\label{fxt__color_8c_a9c76b8058fb0966798306d08dc0f3b48}
-Maximum number of parameters in the P\-D section. 
+I\-G\-E\-S Entity Type 
 
 \subsection{Enumeration Type Documentation}
 \hypertarget{fxt__color_8c_a37dbdc30935031c05304482e1be89d8f}{\index{fxt\-\_\-color.\-c@{fxt\-\_\-color.\-c}!color@{color}}
@@ -91,20 +88,20 @@ Converts iges color number to R\-G\-B color object
 \begin{DoxyReturn}{Returns}
 Color object 
 \end{DoxyReturn}
-\hypertarget{fxt__color_8c_a0ae2f3324c0fcc398dbc8563a840436a}{\index{fxt\-\_\-color.\-c@{fxt\-\_\-color.\-c}!color\-\_\-extract@{color\-\_\-extract}}
+\hypertarget{fxt__color_8c_ad916618c5b5b8f194eff0a9610a0b7dc}{\index{fxt\-\_\-color.\-c@{fxt\-\_\-color.\-c}!color\-\_\-extract@{color\-\_\-extract}}
 \index{color\-\_\-extract@{color\-\_\-extract}!fxt_color.c@{fxt\-\_\-color.\-c}}
 \subsubsection[{color\-\_\-extract}]{\setlength{\rightskip}{0pt plus 5cm}Psection\-Entity\-Data$\ast$ color\-\_\-extract (
 \begin{DoxyParamCaption}
 \item[{const int}]{pd\-\_\-pointer, }
-\item[{char $\ast$}]{ps, }
+\item[{char $\ast$}]{ps\-\_\-data, }
 \item[{const int}]{colornum}
 \end{DoxyParamCaption}
-)}}\label{fxt__color_8c_a0ae2f3324c0fcc398dbc8563a840436a}
+)}}\label{fxt__color_8c_ad916618c5b5b8f194eff0a9610a0b7dc}
 Creates a color entity object from the pd sections data. 
 \begin{DoxyParams}{Parameters}
 {\em pd\-\_\-pointer} & key to uniquely identify each Psection\-Entity\-Data object. \\
 \hline
-{\em $\ast$ps} & unprocessed pd section data (0 -\/ 64). \\
+{\em ps\-\_\-data} & unprocessed pd section data (0 -\/ 64). \\
 \hline
 {\em colornum} & entity color number (0 -\/ 7) default = 0, if pd\-\_\-pointer != N\-U\-L\-L then colornum = -\/1 \\
 \hline

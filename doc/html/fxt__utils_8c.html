@@ -79,20 +79,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">fxt_utils.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;fxt_utils.h&quot;</code><br/>
+<div class="textblock"><code>#include &quot;../include/fxt_utils.h&quot;</code><br/>
+<code>#include &lt;stdlib.h&gt;</code><br/>
 <code>#include &lt;string.h&gt;</code><br/>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a9c76b8058fb0966798306d08dc0f3b48"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__utils_8c.html#a9c76b8058fb0966798306d08dc0f3b48">PARAM_MAX</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="separator:a9c76b8058fb0966798306d08dc0f3b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1b79351fbe33a6102bd706c5ce3caec2"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__utils_8c.html#a1b79351fbe33a6102bd706c5ce3caec2">replace_char</a> (char *str, char find, char replace)</td></tr>
-<tr class="separator:a1b79351fbe33a6102bd706c5ce3caec2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1cb26b1115fe194c44c61ddd2483f1f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__utils_8c.html#ad1cb26b1115fe194c44c61ddd2483f1f">utils_to_array</a> (char **ret, char *str, char *delim)</td></tr>
+<tr class="separator:ad1cb26b1115fe194c44c61ddd2483f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e190dbd7a7765c5689cc86a101b491c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__utils_8c.html#a4e190dbd7a7765c5689cc86a101b491c">utils_to_int</a> (char *str)</td></tr>
+<tr class="separator:a4e190dbd7a7765c5689cc86a101b491c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a448d4134c32820e2b44207c9a5ef2e34"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__utils_8c.html#a448d4134c32820e2b44207c9a5ef2e34">utils_to_float</a> (char *str)</td></tr>
 <tr class="separator:a448d4134c32820e2b44207c9a5ef2e34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affe26990dbafb231b5e52adecce6c122"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__utils_8c.html#affe26990dbafb231b5e52adecce6c122">utils_replace_char</a> (char *str, char find, char replace)</td></tr>
+<tr class="separator:affe26990dbafb231b5e52adecce6c122"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Wilfred Dube <a href="#" onclick="location.href='mai'+'lto:'+'wil'+'fr'+'edd'+'ub'+'e@g'+'ma'+'il.'+'co'+'m'; return false;">wilfr<span style="display: none;">.nosp@m.</span>eddu<span style="display: none;">.nosp@m.</span>be@gm<span style="display: none;">.nosp@m.</span>ail.<span style="display: none;">.nosp@m.</span>com</a> </dd></dl>
@@ -105,13 +116,27 @@ LICENSE</h1>
 <h1><a class="anchor" id="DESCRIPTION"></a>
 DESCRIPTION</h1>
 <p>Provides utility functions. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a1b79351fbe33a6102bd706c5ce3caec2"></a>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="a9c76b8058fb0966798306d08dc0f3b48"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">float replace_char </td>
+          <td class="memname">#define PARAM_MAX&#160;&#160;&#160;1000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum number of parameters in the PD section. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="affe26990dbafb231b5e52adecce6c122"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float utils_replace_char </td>
           <td>(</td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>str</em>, </td>
@@ -148,6 +173,48 @@ DESCRIPTION</h1>
 
 </div>
 </div>
+<a class="anchor" id="ad1cb26b1115fe194c44c61ddd2483f1f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int utils_to_array </td>
+          <td>(</td>
+          <td class="paramtype">char **&#160;</td>
+          <td class="paramname"><em>ret</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>delim</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Extract entity parameters from string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ret</td><td>array of pointer for store string tokens. </td></tr>
+    <tr><td class="paramname">str</td><td>string to be convert to array. </td></tr>
+    <tr><td class="paramname">delim</td><td>specifies a set of bytes that delimit the tokens in the parsed string </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>array of string. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a448d4134c32820e2b44207c9a5ef2e34"></a>
 <div class="memitem">
 <div class="memproto">
@@ -169,6 +236,30 @@ DESCRIPTION</h1>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>floating point value of the string. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a4e190dbd7a7765c5689cc86a101b491c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int utils_to_int </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Convert string to a int. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">str</td><td>string to be convert to int. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int value of the string. </dd></dl>
 
 </div>
 </div>

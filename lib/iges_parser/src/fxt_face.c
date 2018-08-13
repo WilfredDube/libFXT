@@ -33,6 +33,11 @@
 
 static unsigned face_id = 1;
 
+/** Creates a face entity object from the pd sections data.
+* @param pd_pointer key to uniquely identify each PsectionEntityData object.
+* @param ps_data unprocessed pd section data (0 - 64).
+* @return pointer to the PsectionEntityData.
+*/
 PsectionEntityData *
 face_extract(int pd_pointer, char * ps_data)
 {

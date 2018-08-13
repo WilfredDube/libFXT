@@ -28,6 +28,7 @@
 #define PARAM_MAX 1000 /**< Maximum number of parameters in the PD section. */
 
 /** Extract entity parameters from string.
+* @param ret array of pointer for store string tokens.
 * @param str string to be convert to array.
 * @param delim specifies a set of bytes that delimit the tokens in the parsed string
 * @return array of string.

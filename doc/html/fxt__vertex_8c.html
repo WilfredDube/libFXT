@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>My Project: fxt_color.c File Reference</title>
+<title>My Project: fxt_vertex.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -80,48 +80,28 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">fxt_color.c File Reference</div>  </div>
+<div class="title">fxt_vertex.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;../include/fxt_utils.h&quot;</code><br/>
-<code>#include &quot;../include/fxt_color.h&quot;</code><br/>
+<code>#include &quot;../include/fxt_vertex.h&quot;</code><br/>
 <code>#include &quot;../include/fxt_parser.h&quot;</code><br/>
-<code>#include &lt;math.h&gt;</code><br/>
+<code>#include &lt;stdlib.h&gt;</code><br/>
+<code>#include &lt;string.h&gt;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a5bf9c271d3f6fe6bc944832609587a67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__color_8c.html#a5bf9c271d3f6fe6bc944832609587a67">ENTITY_TYPE</a>&#160;&#160;&#160;314</td></tr>
+<tr class="memitem:a5bf9c271d3f6fe6bc944832609587a67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__vertex_8c.html#a5bf9c271d3f6fe6bc944832609587a67">ENTITY_TYPE</a>&#160;&#160;&#160;502</td></tr>
 <tr class="separator:a5bf9c271d3f6fe6bc944832609587a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96c43f6aee42b4fafd6b0069803cb930"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__color_8c.html#a96c43f6aee42b4fafd6b0069803cb930">ENTITY_NAME</a>&#160;&#160;&#160;&quot;Color Definition&quot;</td></tr>
+<tr class="memitem:a96c43f6aee42b4fafd6b0069803cb930"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__vertex_8c.html#a96c43f6aee42b4fafd6b0069803cb930">ENTITY_NAME</a>&#160;&#160;&#160;&quot;Vertex List&quot;</td></tr>
 <tr class="separator:a96c43f6aee42b4fafd6b0069803cb930"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a37dbdc30935031c05304482e1be89d8f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__color_8c.html#a37dbdc30935031c05304482e1be89d8f">color</a> { <br/>
-&#160;&#160;<b>NONE</b>, 
-<b>BLACK</b>, 
-<b>RED</b>, 
-<b>GREEN</b>, 
-<br/>
-&#160;&#160;<b>BLUE</b>, 
-<b>YELLOW</b>, 
-<b>MAGENTA</b>, 
-<b>CYAN</b>, 
-<br/>
-&#160;&#160;<b>WHITE</b>
-<br/>
- }</td></tr>
-<tr class="separator:a37dbdc30935031c05304482e1be89d8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1c15c38e5e24d3ae0aff1b029b77e75c"><td class="memItemLeft" align="right" valign="top">Color *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__color_8c.html#a1c15c38e5e24d3ae0aff1b029b77e75c">color_by_number</a> (const unsigned num)</td></tr>
-<tr class="separator:a1c15c38e5e24d3ae0aff1b029b77e75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad916618c5b5b8f194eff0a9610a0b7dc"><td class="memItemLeft" align="right" valign="top">PsectionEntityData *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__color_8c.html#ad916618c5b5b8f194eff0a9610a0b7dc">color_extract</a> (const int pd_pointer, char *ps_data, const int colornum)</td></tr>
-<tr class="separator:ad916618c5b5b8f194eff0a9610a0b7dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5faa2998ecc86b4525a7b71d5f39831f"><td class="memItemLeft" align="right" valign="top">PsectionEntityData *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fxt__vertex_8c.html#a5faa2998ecc86b4525a7b71d5f39831f">vertexlist_extract</a> (const int pd_pointer, char *ps_data)</td></tr>
+<tr class="separator:a5faa2998ecc86b4525a7b71d5f39831f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section author"><dt>Author</dt><dd>Wilfred Dube <a href="#" onclick="location.href='mai'+'lto:'+'wil'+'fr'+'edd'+'ub'+'e@g'+'ma'+'il.'+'co'+'m'; return false;">wilfr<span style="display: none;">.nosp@m.</span>eddu<span style="display: none;">.nosp@m.</span>be@gm<span style="display: none;">.nosp@m.</span>ail.<span style="display: none;">.nosp@m.</span>com</a> </dd></dl>
@@ -133,14 +113,14 @@ LICENSE</h1>
 <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details at <a href="https://www.gnu.org/copyleft/gpl.html">https://www.gnu.org/copyleft/gpl.html</a></p>
 <h1><a class="anchor" id="DESCRIPTION"></a>
 DESCRIPTION</h1>
-<p>The Color class represents the iges color definition entity (314). </p>
+<p>The Vertexlist class represents the iges Vertex List entity (Form 1 - 502). </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a96c43f6aee42b4fafd6b0069803cb930"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ENTITY_NAME&#160;&#160;&#160;&quot;Color Definition&quot;</td>
+          <td class="memname">#define ENTITY_NAME&#160;&#160;&#160;&quot;Vertex List&quot;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -153,7 +133,7 @@ DESCRIPTION</h1>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define ENTITY_TYPE&#160;&#160;&#160;314</td>
+          <td class="memname">#define ENTITY_TYPE&#160;&#160;&#160;502</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -161,53 +141,13 @@ DESCRIPTION</h1>
 
 </div>
 </div>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
-<a class="anchor" id="a37dbdc30935031c05304482e1be89d8f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="fxt__color_8c.html#a37dbdc30935031c05304482e1be89d8f">color</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<ul>
-<li>iges color number (0 to 8) </li>
-</ul>
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a1c15c38e5e24d3ae0aff1b029b77e75c"></a>
+<a class="anchor" id="a5faa2998ecc86b4525a7b71d5f39831f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Color* color_by_number </td>
-          <td>(</td>
-          <td class="paramtype">const unsigned&#160;</td>
-          <td class="paramname"><em>num</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Converts iges color number to RGB color object </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">num</td><td>value corresponding to the enum color values. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Color object </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ad916618c5b5b8f194eff0a9610a0b7dc"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">PsectionEntityData* color_extract </td>
+          <td class="memname">PsectionEntityData* vertexlist_extract </td>
           <td>(</td>
           <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>pd_pointer</em>, </td>
@@ -216,13 +156,7 @@ DESCRIPTION</h1>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>ps_data</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int&#160;</td>
-          <td class="paramname"><em>colornum</em>&#160;</td>
+          <td class="paramname"><em>ps_data</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -231,12 +165,11 @@ DESCRIPTION</h1>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Creates a color entity object from the pd sections data. </p>
+<p>Creates a VertexList entity object from the pd sections data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pd_pointer</td><td>key to uniquely identify each PsectionEntityData object. </td></tr>
     <tr><td class="paramname">ps_data</td><td>unprocessed pd section data (0 - 64). </td></tr>
-    <tr><td class="paramname">colornum</td><td>entity color number (0 - 7) default = 0, if pd_pointer != NULL then colornum = -1 </td></tr>
   </table>
   </dd>
 </dl>

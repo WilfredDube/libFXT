@@ -1,14 +1,24 @@
 \hypertarget{fxt__utils_8c}{\section{fxt\-\_\-utils.\-c File Reference}
 \label{fxt__utils_8c}\index{fxt\-\_\-utils.\-c@{fxt\-\_\-utils.\-c}}
 }
-{\ttfamily \#include \char`\"{}fxt\-\_\-utils.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/fxt\-\_\-utils.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
 {\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fxt__utils_8c_a9c76b8058fb0966798306d08dc0f3b48}{P\-A\-R\-A\-M\-\_\-\-M\-A\-X}~1000
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-float \hyperlink{fxt__utils_8c_a1b79351fbe33a6102bd706c5ce3caec2}{replace\-\_\-char} (char $\ast$str, char find, char replace)
+int \hyperlink{fxt__utils_8c_ad1cb26b1115fe194c44c61ddd2483f1f}{utils\-\_\-to\-\_\-array} (char $\ast$$\ast$ret, char $\ast$str, char $\ast$delim)
+\item 
+int \hyperlink{fxt__utils_8c_a4e190dbd7a7765c5689cc86a101b491c}{utils\-\_\-to\-\_\-int} (char $\ast$str)
 \item 
 float \hyperlink{fxt__utils_8c_a448d4134c32820e2b44207c9a5ef2e34}{utils\-\_\-to\-\_\-float} (char $\ast$str)
+\item 
+float \hyperlink{fxt__utils_8c_affe26990dbafb231b5e52adecce6c122}{utils\-\_\-replace\-\_\-char} (char $\ast$str, char find, char replace)
 \end{DoxyCompactItemize}
 
 
@@ -22,22 +32,28 @@ Wilfred Dube \href{mailto:wilfreddube@gmail.com}{\tt wilfreddube@gmail.\-com}
 \begin{DoxyVersion}{Version}
 1.\-0
 \end{DoxyVersion}
-\hypertarget{fxt__utils_8c_LICENSE}{}\subsection{L\-I\-C\-E\-N\-S\-E}\label{fxt__utils_8c_LICENSE}
+\hypertarget{fxt__vertex_8c_LICENSE}{}\subsection{L\-I\-C\-E\-N\-S\-E}\label{fxt__vertex_8c_LICENSE}
 This program is free software; you can redistribute it and/or modify it under the terms of the G\-N\-U General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 
-This program is distributed in the hope that it will be useful, but W\-I\-T\-H\-O\-U\-T A\-N\-Y W\-A\-R\-R\-A\-N\-T\-Y; without even the implied warranty of M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y or F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E. See the G\-N\-U General Public License for more details at \href{https://www.gnu.org/copyleft/gpl.html}{\tt https\-://www.\-gnu.\-org/copyleft/gpl.\-html}\hypertarget{fxt__utils_8c_DESCRIPTION}{}\subsection{D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}\label{fxt__utils_8c_DESCRIPTION}
+This program is distributed in the hope that it will be useful, but W\-I\-T\-H\-O\-U\-T A\-N\-Y W\-A\-R\-R\-A\-N\-T\-Y; without even the implied warranty of M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y or F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E. See the G\-N\-U General Public License for more details at \href{https://www.gnu.org/copyleft/gpl.html}{\tt https\-://www.\-gnu.\-org/copyleft/gpl.\-html}\hypertarget{fxt__vertex_8c_DESCRIPTION}{}\subsection{D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}\label{fxt__vertex_8c_DESCRIPTION}
 Provides utility functions. 
 
+\subsection{Macro Definition Documentation}
+\hypertarget{fxt__utils_8c_a9c76b8058fb0966798306d08dc0f3b48}{\index{fxt\-\_\-utils.\-c@{fxt\-\_\-utils.\-c}!P\-A\-R\-A\-M\-\_\-\-M\-A\-X@{P\-A\-R\-A\-M\-\_\-\-M\-A\-X}}
+\index{P\-A\-R\-A\-M\-\_\-\-M\-A\-X@{P\-A\-R\-A\-M\-\_\-\-M\-A\-X}!fxt_utils.c@{fxt\-\_\-utils.\-c}}
+\subsubsection[{P\-A\-R\-A\-M\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-A\-R\-A\-M\-\_\-\-M\-A\-X~1000}}\label{fxt__utils_8c_a9c76b8058fb0966798306d08dc0f3b48}
+Maximum number of parameters in the P\-D section. 
+
 \subsection{Function Documentation}
-\hypertarget{fxt__utils_8c_a1b79351fbe33a6102bd706c5ce3caec2}{\index{fxt\-\_\-utils.\-c@{fxt\-\_\-utils.\-c}!replace\-\_\-char@{replace\-\_\-char}}
-\index{replace\-\_\-char@{replace\-\_\-char}!fxt_utils.c@{fxt\-\_\-utils.\-c}}
-\subsubsection[{replace\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}float replace\-\_\-char (
+\hypertarget{fxt__utils_8c_affe26990dbafb231b5e52adecce6c122}{\index{fxt\-\_\-utils.\-c@{fxt\-\_\-utils.\-c}!utils\-\_\-replace\-\_\-char@{utils\-\_\-replace\-\_\-char}}
+\index{utils\-\_\-replace\-\_\-char@{utils\-\_\-replace\-\_\-char}!fxt_utils.c@{fxt\-\_\-utils.\-c}}
+\subsubsection[{utils\-\_\-replace\-\_\-char}]{\setlength{\rightskip}{0pt plus 5cm}float utils\-\_\-replace\-\_\-char (
 \begin{DoxyParamCaption}
 \item[{char $\ast$}]{str, }
 \item[{char}]{find, }
 \item[{char}]{replace}
 \end{DoxyParamCaption}
-)}}\label{fxt__utils_8c_a1b79351fbe33a6102bd706c5ce3caec2}
+)}}\label{fxt__utils_8c_affe26990dbafb231b5e52adecce6c122}
 Replaces a character in a string i.\-e replaces the D in an iges floating point with an E(mathematical exponent character) 
 \begin{DoxyParams}{Parameters}
 {\em str} & string to Process \\
@@ -49,6 +65,27 @@ Replaces a character in a string i.\-e replaces the D in an iges floating point 
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 floating point value of the processed string 
+\end{DoxyReturn}
+\hypertarget{fxt__utils_8c_ad1cb26b1115fe194c44c61ddd2483f1f}{\index{fxt\-\_\-utils.\-c@{fxt\-\_\-utils.\-c}!utils\-\_\-to\-\_\-array@{utils\-\_\-to\-\_\-array}}
+\index{utils\-\_\-to\-\_\-array@{utils\-\_\-to\-\_\-array}!fxt_utils.c@{fxt\-\_\-utils.\-c}}
+\subsubsection[{utils\-\_\-to\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}int utils\-\_\-to\-\_\-array (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{ret, }
+\item[{char $\ast$}]{str, }
+\item[{char $\ast$}]{delim}
+\end{DoxyParamCaption}
+)}}\label{fxt__utils_8c_ad1cb26b1115fe194c44c61ddd2483f1f}
+Extract entity parameters from string. 
+\begin{DoxyParams}{Parameters}
+{\em ret} & array of pointer for store string tokens. \\
+\hline
+{\em str} & string to be convert to array. \\
+\hline
+{\em delim} & specifies a set of bytes that delimit the tokens in the parsed string \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array of string. 
 \end{DoxyReturn}
 \hypertarget{fxt__utils_8c_a448d4134c32820e2b44207c9a5ef2e34}{\index{fxt\-\_\-utils.\-c@{fxt\-\_\-utils.\-c}!utils\-\_\-to\-\_\-float@{utils\-\_\-to\-\_\-float}}
 \index{utils\-\_\-to\-\_\-float@{utils\-\_\-to\-\_\-float}!fxt_utils.c@{fxt\-\_\-utils.\-c}}
@@ -64,4 +101,19 @@ Convert string to a float.
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 floating point value of the string. 
+\end{DoxyReturn}
+\hypertarget{fxt__utils_8c_a4e190dbd7a7765c5689cc86a101b491c}{\index{fxt\-\_\-utils.\-c@{fxt\-\_\-utils.\-c}!utils\-\_\-to\-\_\-int@{utils\-\_\-to\-\_\-int}}
+\index{utils\-\_\-to\-\_\-int@{utils\-\_\-to\-\_\-int}!fxt_utils.c@{fxt\-\_\-utils.\-c}}
+\subsubsection[{utils\-\_\-to\-\_\-int}]{\setlength{\rightskip}{0pt plus 5cm}int utils\-\_\-to\-\_\-int (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{fxt__utils_8c_a4e190dbd7a7765c5689cc86a101b491c}
+Convert string to a int. 
+\begin{DoxyParams}{Parameters}
+{\em str} & string to be convert to int. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int value of the string. 
 \end{DoxyReturn}

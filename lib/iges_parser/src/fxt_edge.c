@@ -28,8 +28,8 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define ENTITY_TYPE 504
-#define ENTITY_NAME "Edgelist"
+#define ENTITY_TYPE 504 /**< IGES Entity Type */
+#define ENTITY_NAME "Edgelist" /**< IGES Entity Name */
 
 /** Create a new Edge object.
 * @param model_space_curve_ptr Pointer to the DE of the first model space curve
@@ -51,7 +51,7 @@ edge_new(char *model_space_curve_type, Vertex *start_vertex, Vertex *terminate_v
 
 /** Creates a EdgeList entity object from the pd sections data.
 * @param pd_pointer key to uniquely identify each PsectionEntityData object.
-* @param ps unprocessed pd section data (0 - 64).
+* @param ps_data unprocessed pd section data (0 - 64).
 * @return pointer to the PsectionEntityData.
 */
 PsectionEntityData *

@@ -28,9 +28,14 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define ENTITY_TYPE 508
-#define ENTITY_NAME "LOOP"
+#define ENTITY_TYPE 508 /**< IGES Entity Type */
+#define ENTITY_NAME "Loop" /**< IGES Entity Name */
 
+/** Creates a loop entity object from the pd sections data.
+* @param pd_pointer key to uniquely identify each PsectionEntityData object.
+* @param ps_data unprocessed pd section data (0 - 64).
+* @return pointer to the PsectionEntityData.
+*/
 PsectionEntityData *
 Loop_extract(const int pd_pointer, char *ps_data)
 {

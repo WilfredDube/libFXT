@@ -1,0 +1,66 @@
+\hypertarget{fxt__loop_8c}{\section{fxt\-\_\-loop.\-c File Reference}
+\label{fxt__loop_8c}\index{fxt\-\_\-loop.\-c@{fxt\-\_\-loop.\-c}}
+}
+{\ttfamily \#include \char`\"{}../include/fxt\-\_\-utils.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/fxt\-\_\-loop.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../include/fxt\-\_\-parser.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{fxt__loop_8c_a5bf9c271d3f6fe6bc944832609587a67}{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E}~508
+\item 
+\#define \hyperlink{fxt__loop_8c_a96c43f6aee42b4fafd6b0069803cb930}{E\-N\-T\-I\-T\-Y\-\_\-\-N\-A\-M\-E}~\char`\"{}Loop\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Psection\-Entity\-Data $\ast$ \hyperlink{fxt__loop_8c_af16316b9f3b6723f6f0da229562b5ad5}{Loop\-\_\-extract} (const int pd\-\_\-pointer, char $\ast$ps\-\_\-data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Wilfred Dube \href{mailto:wilfreddube@gmail.com}{\tt wilfreddube@gmail.\-com} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+13 August 2018 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-0
+\end{DoxyVersion}
+\hypertarget{fxt__vertex_8c_LICENSE}{}\subsection{L\-I\-C\-E\-N\-S\-E}\label{fxt__vertex_8c_LICENSE}
+This program is free software; you can redistribute it and/or modify it under the terms of the G\-N\-U General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but W\-I\-T\-H\-O\-U\-T A\-N\-Y W\-A\-R\-R\-A\-N\-T\-Y; without even the implied warranty of M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y or F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E. See the G\-N\-U General Public License for more details at \href{https://www.gnu.org/copyleft/gpl.html}{\tt https\-://www.\-gnu.\-org/copyleft/gpl.\-html}\hypertarget{fxt__vertex_8c_DESCRIPTION}{}\subsection{D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}\label{fxt__vertex_8c_DESCRIPTION}
+The Loop class represents the iges Loop entity (Form 1 -\/ 508). 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{fxt__loop_8c_a96c43f6aee42b4fafd6b0069803cb930}{\index{fxt\-\_\-loop.\-c@{fxt\-\_\-loop.\-c}!E\-N\-T\-I\-T\-Y\-\_\-\-N\-A\-M\-E@{E\-N\-T\-I\-T\-Y\-\_\-\-N\-A\-M\-E}}
+\index{E\-N\-T\-I\-T\-Y\-\_\-\-N\-A\-M\-E@{E\-N\-T\-I\-T\-Y\-\_\-\-N\-A\-M\-E}!fxt_loop.c@{fxt\-\_\-loop.\-c}}
+\subsubsection[{E\-N\-T\-I\-T\-Y\-\_\-\-N\-A\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-T\-I\-T\-Y\-\_\-\-N\-A\-M\-E~\char`\"{}Loop\char`\"{}}}\label{fxt__loop_8c_a96c43f6aee42b4fafd6b0069803cb930}
+I\-G\-E\-S Entity Name \hypertarget{fxt__loop_8c_a5bf9c271d3f6fe6bc944832609587a67}{\index{fxt\-\_\-loop.\-c@{fxt\-\_\-loop.\-c}!E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E@{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E}}
+\index{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E@{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E}!fxt_loop.c@{fxt\-\_\-loop.\-c}}
+\subsubsection[{E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-T\-I\-T\-Y\-\_\-\-T\-Y\-P\-E~508}}\label{fxt__loop_8c_a5bf9c271d3f6fe6bc944832609587a67}
+I\-G\-E\-S Entity Type 
+
+\subsection{Function Documentation}
+\hypertarget{fxt__loop_8c_af16316b9f3b6723f6f0da229562b5ad5}{\index{fxt\-\_\-loop.\-c@{fxt\-\_\-loop.\-c}!Loop\-\_\-extract@{Loop\-\_\-extract}}
+\index{Loop\-\_\-extract@{Loop\-\_\-extract}!fxt_loop.c@{fxt\-\_\-loop.\-c}}
+\subsubsection[{Loop\-\_\-extract}]{\setlength{\rightskip}{0pt plus 5cm}Psection\-Entity\-Data$\ast$ Loop\-\_\-extract (
+\begin{DoxyParamCaption}
+\item[{const int}]{pd\-\_\-pointer, }
+\item[{char $\ast$}]{ps\-\_\-data}
+\end{DoxyParamCaption}
+)}}\label{fxt__loop_8c_af16316b9f3b6723f6f0da229562b5ad5}
+Creates a loop entity object from the pd sections data. 
+\begin{DoxyParams}{Parameters}
+{\em pd\-\_\-pointer} & key to uniquely identify each Psection\-Entity\-Data object. \\
+\hline
+{\em ps\-\_\-data} & unprocessed pd section data (0 -\/ 64). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pointer to the Psection\-Entity\-Data. 
+\end{DoxyReturn}

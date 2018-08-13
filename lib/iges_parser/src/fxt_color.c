@@ -143,7 +143,7 @@ color_by_number(const unsigned num)
 
 /** Creates a color entity object from the pd sections data.
 * @param pd_pointer key to uniquely identify each PsectionEntityData object.
-* @param *ps unprocessed pd section data (0 - 64).
+* @param ps_data unprocessed pd section data (0 - 64).
 * @param colornum entity color number (0 - 7) default = 0, if pd_pointer != NULL then colornum = -1
 * @return pointer to the PsectionEntityData.
 */
