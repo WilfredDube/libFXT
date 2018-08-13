@@ -7,5 +7,6 @@
 int utils_to_int(char *str);
 float utils_to_float(char *str);
 float utils_replace_char(char* str, char find, char replace);
+int utils_to_array(char **ret, char *str, char *delim);
 
 #endif

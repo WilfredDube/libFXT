@@ -21,10 +21,32 @@
  *
  * Provides utility functions.
  */
-
 #include "../include/fxt_utils.h"
 #include <stdlib.h>
 #include <string.h>
+
+#define PARAM_MAX 1000 /**< Maximum number of parameters in the PD section. */
+
+/** Extract entity parameters from string.
+* @param str string to be convert to array.
+* @param delim specifies a set of bytes that delimit the tokens in the parsed string
+* @return array of string.
+*/
+int
+utils_to_array(char **ret, char *str, char *delim)
+{
+  int x = 0;
+  //char *array[PARAM_MAX] = { NULL };
+
+  ret[x] = strtok(str, ",");
+
+  while (ret[x] != NULL){
+    ++x;
+    ret[x] = strtok(NULL, ",");
+  }
+
+  return 0;
+}
 
 /** Convert string to a int.
 * @param str string to be convert to int.
