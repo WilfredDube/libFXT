@@ -148,22 +148,14 @@ color_by_number(const unsigned num)
 PsectionEntityData *
 color_extract(const int pd_pointer, char *ps_data, const int colornum)
 {
-  int i = 0;
   float r,g,b;
-  char *name, *temp;
-  char *color_array[PARAM_MAX];
+  char *name;
+  char *color_array[PARAM_MAX] = {NULL};
   Color *col = NULL;
   PsectionEntityData * psd = NULL;
 
   if (ps_data != NULL) {
-    temp = (char *) malloc (sizeof(char *));
-    temp = strtok(ps_data, ",");
-    strcpy(color_array[1], temp);
-
-    while (color_array[i] != NULL){
-      ++i;
-      color_array[i] = (char *)strtok(NULL, ",");
-    }
+    utils_to_array(color_array, ps_data, ",");
 
     r = utils_to_float(color_array[1]);
     g = utils_to_float(color_array[2]);

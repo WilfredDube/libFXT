@@ -57,18 +57,13 @@ vertex_new(float x, float y, float z)
 PsectionEntityData *
 vertexlist_extract(const int pd_pointer, char *ps_data)
 {
-  int i = 0;
+  int i;
   char *vertexlist_array[PARAM_MAX] = {NULL};
   Vertex *vt = NULL;
   VertexList *vertexlist = NULL;
   PsectionEntityData * psd = NULL;
 
-  vertexlist_array[i] = strtok(ps_data, ",");
-
-  while (vertexlist_array[i] != NULL){
-    ++i;
-    vertexlist_array[i] = strtok(NULL, ",");
-  }
+  utils_to_array(vertexlist_array, ps_data, ",");
 
   vertexlist = (VertexList *)malloc(sizeof(* vertexlist));
 
