@@ -25,6 +25,16 @@
 #include "../include/fxt_utils.h"
 #include <string.h>
 
+/** Convert string to a int.
+* @param str string to be convert to int.
+* @return int value of the string.
+*/
+int
+utils_to_int(char *str)
+{
+  return atoi(str);
+}
+
 /** Convert string to a float.
 * @param str string to be convert to float.
 * @return floating point value of the string.
