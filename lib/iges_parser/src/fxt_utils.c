@@ -37,9 +37,7 @@ int
 utils_to_array(char **ret, char *str, char *delim)
 {
   int x = 0;
-  //char *array[PARAM_MAX] = { NULL };
 
-  ret[x] = strtok(str, ",");
 
   while (ret[x] != NULL){
     x++;
