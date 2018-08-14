@@ -38,6 +38,28 @@ utils_to_array(char **ret, char *str, char *delim)
 {
   int x = 0;
 
+  int size = strlen(str) + 10;
+  char array[size];
+
+  for (int y = 0, z = 0; y < strlen(str); y++, z++){
+    if ((str[y] == delim[0]) && (str[y + 1] == delim[0])){
+      /* Code : Incase , follow another , */
+    } else if ((str[y] == delim[0]) && (str[y + 1] == delim[1])) { /* ,; */
+      array[z] = str[y];
+      z++;
+      array[z] = 'N';
+      y++;
+      z++;
+      array[z] = str[y];
+      array[++z] = '\0';
+    } else {
+      array[y] = str[y];
+    }
+  }
+
+  strncpy(str, array, sizeof(array));
+
+  ret[x] = strtok(str, delim);
 
   while (ret[x] != NULL){
     x++;
