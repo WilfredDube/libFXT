@@ -78,10 +78,15 @@ utils_to_float(char *str)
 float
 utils_replace_char(char* str, char find, char replace)
 {
-    char *current_pos = strchr(str,find);
-    while (current_pos){
-        *current_pos = replace;
-        current_pos = strchr(current_pos,find);
+  int i;
+
+  for(i = 0; i <= strlen(str); i++)
+  {
+    if(str[i] == find)
+    {
+      str[i] = replace;
     }
-    return utils_to_float(str);
+  }
+
+  return utils_to_float(str);
 }
