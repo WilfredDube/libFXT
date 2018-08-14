@@ -27,6 +27,7 @@
 #include "../include/fxt_parser.h"
 
 #include <math.h>
+#include <stdio.h>
 
 #define ENTITY_TYPE 314 /**< IGES Entity Type */
 #define ENTITY_NAME "Color Definition" /**< IGES Entity Name */
@@ -104,11 +105,12 @@ color_rgb_convert(float r, float g, float b, char *name)
 Color *
 color_by_number(const unsigned num)
 {
-  Color *col = (Color *)malloc(sizeof(* col));
+  Color *col = NULL;
 
   switch (num) {
     case NONE:
-      col = NULL;
+      // col = NULL;
+      col = color_rgb_convert(0,0,0,"BLACK");
       break;
     case BLACK:
       col = color_rgb_convert(0,0,0,"BLACK");
@@ -135,7 +137,8 @@ color_by_number(const unsigned num)
       col = color_rgb_convert(255,255,255,"WHITE");
       break;
     default:
-      ;
+    col = color_rgb_convert(0,0,0,"BLACK"); // FIX
+    break;
   }
 
   return col;
@@ -174,7 +177,7 @@ color_extract(const int pd_pointer, char *ps_data, const int colornum)
 
   psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData *));
 
-  psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, col);
+  // psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, col);
 
   return psd;
 }
