@@ -42,8 +42,8 @@ utils_to_array(char **ret, char *str, char *delim)
   ret[x] = strtok(str, ",");
 
   while (ret[x] != NULL){
-    ++x;
-    ret[x] = strtok(NULL, ",");
+    x++;
+    ret[x] = strtok(NULL, delim);
   }
 
   return 0;
