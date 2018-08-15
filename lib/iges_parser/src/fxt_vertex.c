@@ -32,6 +32,18 @@
 #define ENTITY_TYPE 502 /**< IGES Entity Type */
 #define ENTITY_NAME "Vertex List" /**< IGES Entity Name */
 
+/** Breaks vertex object into x, y, z.
+* @param ret_array array to store return values.
+* @param vector the vertex break down.
+*/
+void
+vertex_get_coords(long double *ret_array, Vertex *vector)
+{
+  ret_array[0] = vector->x;
+  ret_array[1] = vector->y;
+  ret_array[2] = vector->z;
+}
+
 /** Create a vertex object
 * @param x value in the x-axis
 * @param y value in the y-axis
