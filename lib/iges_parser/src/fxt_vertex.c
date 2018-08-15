@@ -38,8 +38,8 @@
 * @param z value in the z-axis
 * @returns Vertex object
 */
-static Vertex *
-vertex_new(float x, float y, float z)
+Vertex *
+vertex_new(long double x, long double y, long double z)
 {
   Vertex *vt = (Vertex *)malloc(sizeof(*vt));
 
