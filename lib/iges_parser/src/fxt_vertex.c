@@ -71,9 +71,9 @@ vertexlist_extract(const int pd_pointer, char *ps_data)
 
   for (size_t y = 0, x = 2; y < vertexlist->n; y++, x+=3)
   {
-    float x1 = utils_replace_char(vertexlist_array[x], 'D', 'E');
-    float y1 = utils_replace_char(vertexlist_array[x + 1], 'D', 'E');
-    float z1 = utils_replace_char(vertexlist_array[x + 2], 'D', 'E');
+    long double x1 = utils_replace_char(vertexlist_array[x], 'D', 'E');
+    long double y1 = utils_replace_char(vertexlist_array[x + 1], 'D', 'E');
+    long double z1 = utils_replace_char(vertexlist_array[x + 2], 'D', 'E');
 
 
     vt = vertex_new(x1, y1, z1);

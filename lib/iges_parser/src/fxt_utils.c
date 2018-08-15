@@ -81,7 +81,7 @@ utils_to_int(char *str)
 * @param str string to be convert to float.
 * @return floating point value of the string.
 */
-double
+long double
 utils_to_float(char *str)
 {
   return atof(str);
@@ -93,7 +93,7 @@ utils_to_float(char *str)
 * @param replace character to replace find with
 * @return floating point value of the processed string
 */
-double
+long double
 utils_replace_char(char* str, char find, char replace)
 {
   int i;

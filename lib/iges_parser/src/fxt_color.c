@@ -51,7 +51,7 @@ enum color {
 * @param value (0 <= value <= 255)
 * @returns ceiling color value in iges % standard.
 */
-static float
+static long double
 color_percentage(const int value)
 {
   return ceil((value/255)*100);
@@ -65,7 +65,7 @@ color_percentage(const int value)
 * @returns A newly allocated color object.  This should be freed after use.
 */
 static Color *
-color_new(float r, float g, float b, char *name)
+color_new(long double r, long double g, long double b, char *name)
 {
   Color *col = (Color *)malloc(sizeof(*col));
   col->red = r;
@@ -89,7 +89,7 @@ color_new(float r, float g, float b, char *name)
 * @returns A newly allocated color object.  This should be freed after use.
 */
 static Color *
-color_rgb_convert(float r, float g, float b, char *name)
+color_rgb_convert(long double r, long double g, long double b, char *name)
 {
   r = color_percentage(r);
   g = color_percentage(g);
@@ -153,7 +153,7 @@ color_by_number(const unsigned num)
 PsectionEntityData *
 color_extract(const int pd_pointer, char *ps_data, const int colornum)
 {
-  float r,g,b;
+  long double r,g,b;
   char *name;
   char *color_array[PARAM_MAX] = {NULL};
   Color *col = NULL;
@@ -176,6 +176,8 @@ color_extract(const int pd_pointer, char *ps_data, const int colornum)
   }
 
   psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData *));
+
+  printf("%Lg\n", col->red);
 
   // psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, col);
 

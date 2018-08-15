@@ -6,9 +6,9 @@
 #define VERTICES_MAX 10000
 
 struct _Point {
-  int x;
-  int y;
-  int z;
+  long double x;
+  long double y;
+  long double z;
 };
 
 struct _VertexList {

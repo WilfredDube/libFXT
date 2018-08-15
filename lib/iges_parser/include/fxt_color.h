@@ -5,9 +5,9 @@
 
 /* Color - entity 314*/
 struct _Color {
-  float red;
-  float green;
-  float blue;
+  long double red;
+  long double green;
+  long double blue;
   char* name;
 };
 
