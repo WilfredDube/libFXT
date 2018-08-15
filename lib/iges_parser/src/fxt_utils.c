@@ -24,6 +24,7 @@
 #include "../include/fxt_utils.h"
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #define PARAM_MAX 1000 /**< Maximum number of parameters in the PD section. */
 
@@ -37,11 +38,9 @@ int
 utils_to_array(char **ret, char *str, char *delim)
 {
   int x = 0;
+  char array[100000];
 
-  int size = strlen(str) + 10;
-  char array[size];
-
-  for (int y = 0, z = 0; y < strlen(str); y++, z++){
+  for (int y = 0, z = 0; str[y] != '\0'; y++, z++){
     if ((str[y] == delim[0]) && (str[y + 1] == delim[0])){
       /* Code : Incase , follow another , */
     } else if ((str[y] == delim[0]) && (str[y + 1] == delim[1])) { /* ,; */
@@ -51,13 +50,12 @@ utils_to_array(char **ret, char *str, char *delim)
       y++;
       z++;
       array[z] = str[y];
-      array[++z] = '\0';
     } else {
-      array[y] = str[y];
+      array[z] = str[y];
     }
   }
 
-  strncpy(str, array, sizeof(array));
+  memcpy(str, array, sizeof(*array));
 
   ret[x] = strtok(str, delim);
 
