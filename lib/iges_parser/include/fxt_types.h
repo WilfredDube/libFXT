@@ -8,6 +8,7 @@
 
 #define PARAM_MAX 1000 /**< Maximum number of parameters in the PD section. */
 #define LOOPS_MAX 10 /** Maximum number of loops per face. */
+#define DELIMITER ",;"
 
 /* IGES specification entity types. */
 /* Point in 3-space (x,y,z) */

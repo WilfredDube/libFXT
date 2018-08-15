@@ -44,7 +44,7 @@ Loop_extract(const int pd_pointer, char *ps_data)
   Loop *loop = NULL;
   PsectionEntityData * psd = NULL;
 
-  utils_to_array(edge_array, ps_data, ",");
+  utils_to_array(edge_array, ps_data, DELIMITER);
 
   loop = (Loop *) malloc(sizeof(* loop));
   loop->n = utils_to_int(edge_array[1]);

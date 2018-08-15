@@ -45,7 +45,7 @@ face_extract(int pd_pointer, char * ps_data)
   char *face_array[PARAM_MAX] = {NULL};
   PsectionEntityData *psd = NULL;
 
-  utils_to_array(face_array, ps_data, ",");
+  utils_to_array(face_array, ps_data, DELIMITER);
 
   face = (Face *)malloc(sizeof(* face));
 

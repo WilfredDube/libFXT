@@ -63,11 +63,11 @@ edgelist_extract(const int pd_pointer, char *ps_data)
   EdgeList *edgelist = NULL;
   PsectionEntityData * psd = NULL;
 
-  edgelist_array[i] = strtok(ps_data, ",");
+  edgelist_array[i] = strtok(ps_data, DELIMITER);
 
   while (edgelist_array[i] != NULL){
     ++i;
-    edgelist_array[i] = strtok(NULL, ",");
+    edgelist_array[i] = strtok(NULL, DELIMITER);
   }
 
   edgelist = (EdgeList *)malloc(sizeof(* edgelist));

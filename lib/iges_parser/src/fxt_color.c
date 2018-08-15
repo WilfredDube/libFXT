@@ -160,7 +160,7 @@ color_extract(const int pd_pointer, char *ps_data, const int colornum)
   PsectionEntityData * psd = NULL;
 
   if (ps_data != NULL) {
-    utils_to_array(color_array, ps_data, ",;");
+    utils_to_array(color_array, ps_data, DELIMITER);
 
     r = utils_to_float(color_array[1]);
     g = utils_to_float(color_array[2]);
