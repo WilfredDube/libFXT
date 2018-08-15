@@ -27,6 +27,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #define ENTITY_TYPE 502 /**< IGES Entity Type */
 #define ENTITY_NAME "Vertex List" /**< IGES Entity Name */
@@ -57,42 +58,33 @@ vertex_new(float x, float y, float z)
 PsectionEntityData *
 vertexlist_extract(const int pd_pointer, char *ps_data)
 {
-  int i;
   char *vertexlist_array[PARAM_MAX] = {NULL};
   Vertex *vt = NULL;
   VertexList *vertexlist = NULL;
   PsectionEntityData * psd = NULL;
 
-  utils_to_array(vertexlist_array, ps_data, ",");
+  utils_to_array(vertexlist_array, ps_data, DELIMITER);
 
-  vertexlist = (VertexList *)malloc(sizeof(* vertexlist));
+  vertexlist = (VertexList *)malloc(sizeof(VertexList));
 
   vertexlist->n = utils_to_int(vertexlist_array[1]);
 
-  int x = 2, y = 0;
-  while(vertexlist_array[x] != NULL)
+  for (size_t y = 0, x = 2; y < vertexlist->n; y++, x+=3)
   {
     float x1 = utils_replace_char(vertexlist_array[x], 'D', 'E');
     float y1 = utils_replace_char(vertexlist_array[x + 1], 'D', 'E');
     float z1 = utils_replace_char(vertexlist_array[x + 2], 'D', 'E');
 
+
     vt = vertex_new(x1, y1, z1);
 
-    vertexlist->vertices[y] = (Vertex *)malloc(sizeof(Vertex *));
+    vertexlist->vertices[y] = malloc(sizeof(Vertex));
     vertexlist->vertices[y] = vt;
-
-    x += 3; /* Jump to the next vertex */
-    y++;
   }
 
   psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData*));
 
-  psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, vertexlist);
-
-  for (i = 0; i < PARAM_MAX; i++){
-    vertexlist_array[i] = NULL;
-    free(vertexlist_array[i]);
-  }
+  // psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, vertexlist);
 
   return psd;
 }
