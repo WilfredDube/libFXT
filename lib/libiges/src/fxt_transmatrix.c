@@ -82,8 +82,9 @@ transmatrix_extract(const int pd_pointer, char *ps_data)
 
   tmx = (TransformationMatrix *)malloc(sizeof(TransformationMatrix));
 
-  for (size_t i = 1, v = 0, m = 0; i < TMX_PARAMS; i++, v++, m++) {
-    for (size_t j = 0; j < 3; j++) {
+  size_t i, j, v, m;
+  for (i = 1, v = 0, m = 0; i < TMX_PARAMS; i++, v++, m++) {
+    for (j = 0; j < 3; j++) {
       if ((i % 4) != 0) {
         tmx->r_matrix[m][j] = utils_replace_char(tmx_array[i], 'D', 'E');
         i++;

@@ -55,8 +55,8 @@ face_extract(int pd_pointer, char * ps_data)
   face->n = utils_to_int(face_array[2]);
   face->outer_flag = (bool)utils_to_int(face_array[3]);
 
-  int N = face->n;
-  for (int x = 4, y =0; (x - 4) < N; x++, y++){
+  int x, N = face->n;
+  for (x = 4, y =0; (x - 4) < N; x++, y++){
      face->inner_loop[y]= dsection_get_loop(utils_to_int(face_array[x]));
   }
 

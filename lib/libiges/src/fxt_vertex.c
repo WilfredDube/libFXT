@@ -80,14 +80,16 @@ vertexlist_extract(const int pd_pointer, char *ps_data)
   vertexlist = (VertexList *)malloc(sizeof(VertexList));
 
   vertexlist->n = utils_to_int(vertexlist_array[1]);
+  printf("%s\n", vertexlist_array[0]);
 
-  for (size_t y = 0, x = 2; y < vertexlist->n; y++, x+=3)
+  size_t y, x;
+  for (y = 0, x = 2; y < vertexlist->n; y++, x+=3)
   {
     long double x1 = utils_replace_char(vertexlist_array[x], 'D', 'E');
     long double y1 = utils_replace_char(vertexlist_array[x + 1], 'D', 'E');
     long double z1 = utils_replace_char(vertexlist_array[x + 2], 'D', 'E');
 
-
+    printf("%ld: %Lg %Lg %Lg\n", x, x1, y1, z1);
     vt = vertex_new(x1, y1, z1);
 
     vertexlist->vertices[y] = malloc(sizeof(Vertex));
