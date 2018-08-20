@@ -3,6 +3,7 @@
 
 #include "fxt_types.h"
 
+  PNONE,
 struct _GsectionModelDesc {
 };
 

@@ -36,7 +36,7 @@
 * @enum color - iges color number (0 to 8)
 */
 enum color {
-  NONE,
+  CNONE,
   BLACK,
   RED,
   GREEN,
@@ -108,7 +108,7 @@ color_by_number(const unsigned num)
   Color *col = NULL;
 
   switch (num) {
-    case NONE:
+    case CNONE:
       // col = NULL;
       col = color_rgb_convert(0,0,0,"BLACK");
       break;
