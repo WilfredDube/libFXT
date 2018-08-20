@@ -27,6 +27,7 @@
 #include <stdio.h>
 
 #define PARAM_MAX 1000 /**< Maximum number of parameters in the PD section. */
+#define ARRAY_SIZE 100000
 
 /** Extract entity parameters from string.
 * @param ret array of pointer for store string tokens.
@@ -37,32 +38,11 @@
 int
 utils_to_array(char **ret, char *str, char *delim)
 {
-  int x = 0;
-  char array[100000];
+  size_t count = 0;
+  char *tok;
 
-  for (int y = 0, z = 0; str[y] != '\0'; y++, z++){
-    if ((str[y] == delim[0]) && (str[y + 1] == delim[0])){
-      /* Code : Incase , follow another , */
-    } else if ((str[y] == delim[0]) && (str[y + 1] == delim[1])) { /* ,; */
-      array[z] = str[y];
-      z++;
-      array[z] = 'N';
-      y++;
-      z++;
-      array[z] = str[y];
-    } else {
-      array[z] = str[y];
-    }
-  }
-
-  memcpy(str, array, sizeof(*array));
-
-  ret[x] = strtok(str, delim);
-
-  while (ret[x] != NULL){
-    x++;
-    ret[x] = strtok(NULL, delim);
-  }
+  while((tok = utils_strsep(&str, delim)) && count < PARAM_MAX)
+        ret[count++] = tok;
 
   return 0;
 }
@@ -96,14 +76,16 @@ utils_to_float(char *str)
 long double
 utils_replace_char(char* str, char find, char replace)
 {
-  int i;
+  char *str_ptr;
 
-  for(i = 0; i <= strlen(str); i++)
-  {
-    if(str[i] == find)
-    {
-      str[i] = replace;
-    }
+  if (str == NULL) {
+    printf("NULLL\n");
+    exit(EXIT_FAILURE);
+  }
+
+  str_ptr = strchr(str, find);
+  if (str_ptr != NULL) {
+    *str_ptr = replace;
   }
 
   return utils_to_float(str);
