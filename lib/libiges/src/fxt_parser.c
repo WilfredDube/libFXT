@@ -177,12 +177,50 @@ parser_gsection_new(GsectionModelDesc *gsec_model_desc, char *desc_ptr)
   gsec_model_desc->drafting_standard = utils_to_int(desc_array[23]); /** TODO: enum 0 - 7  */
   gsec_model_desc->created_or_last_modification_time = (char *)desc_array[24];
   gsec_model_desc->descriptor = (char *)desc_array[25];
+}
 
-  // size_t i = 0;
-  // while (i < 26) {
-  //   printf("%s\n", desc_array[i]);
-  //   i++;
-  // }
+void
+parser_dsection_new(DsectionEntity *dsec_entity, char *line1, char *line2)
+{
+  char substr[10];
+
+  // dsec_entity = (DsectionEntity *) malloc(sizeof(DsectionEntity));
+
+  get_field(line1, substr, 1, 8);
+  dsec_entity->entity_type = utils_to_int(substr);
+  get_field(line1, substr, 9, 8);
+  dsec_entity->ps_data_ptr  = utils_to_int(substr);
+  dsec_entity->entity_object = NULL;
+  get_field(line1, substr, 17, 8);
+  dsec_entity->structure = utils_to_int(substr);
+  get_field(line1, substr, 25, 8);
+  dsec_entity->line_font_pattern = utils_to_int(substr);
+  get_field(line1, substr, 33, 8);
+  dsec_entity->layer_or_level = utils_to_int(substr);
+  get_field(line1, substr, 41, 8);
+  dsec_entity->view_ptr = utils_to_int(substr); /** TODO: Investigate the use of this value. */
+  get_field(line1, substr, 49, 8);
+  dsec_entity->transmatrix = utils_to_int(substr);
+  dsec_entity->entity_transmatrix = NULL;
+  get_field(line1, substr, 57, 7);
+  dsec_entity->label_display_assoc = utils_to_int(substr);
+  get_field(line1, substr, 65, 8);
+  dsec_entity->status_number = utils_to_int(substr);
+  get_field(line1, substr, 74, 8);
+  dsec_entity->sequence_number = utils_to_int(substr);
+
+  get_field(line1, substr, 9, 8);
+  dsec_entity->line_weight = utils_to_int(substr);
+  get_field(line1, substr, 17, 8);
+  dsec_entity->color = utils_to_int(substr);
+  get_field(line1, substr, 25, 8);
+  dsec_entity->ps_line_count = utils_to_int(substr);
+  get_field(line1, substr, 33, 8);
+  dsec_entity->form_number = utils_to_int(substr);
+  get_field(line1, substr, 57, 8);
+  dsec_entity->entity_label = substr;
+  get_field(line1, substr, 65, 8);
+  dsec_entity->entity_subscript_number = utils_to_int(substr);
 }
 
 void
