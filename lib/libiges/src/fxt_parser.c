@@ -78,19 +78,20 @@ parser_init(IgesFile *fp, char *filename)
   return EXIT_SUCCESS;
 }
 
+//C substring function definition
 void
-copy_field(char *s1, int poz, int x, char *s2)
-{
-  /* copy "x" chars from position "poz" from string "s1" to string "s2"*/
-  int i, j;
-  i=poz;
-  j=0;
-  // s2 = (char *)malloc(sizeof(s1));
-  while (j < x) {
-    s2[j]=s1[i];
-    i++;
-    j++;
-  }
+get_field(char s[], char sub[], int p, int l) {
+   int c = 0;
+
+   while (c < l) {
+      sub[c] = s[p+c-1];
+      c++;
+   }
+   sub[c] = '\0';
+}
+
+char *get_line(IgesFile *fp, char *line){
+  return fgets(line, 90, fp);
 }
 
 void
