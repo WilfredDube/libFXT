@@ -64,6 +64,7 @@ struct _DsectionEntity {
   Pattern line_font_pattern;
   int layer_or_level;
   int view_ptr; /** TODO: Investigate the use of this value. */
+  int transmatrix;
   TransformationMatrix *entity_transmatrix;
   int label_display_assoc;
   int status_number;
