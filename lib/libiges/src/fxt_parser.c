@@ -224,11 +224,17 @@ parser_dsection_new(DsectionEntity *dsec_entity, char *line1, char *line2)
 }
 
 void
-parser_dsection_new(DsectionEntity *dsec_entity, char *desc_ptr)
+parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity)
 {
-  char *desc_array[GSEC_MAX] = {NULL};
+  printf("ON ADD>>>>>>>>>>>>\n");
+  if(g_hash_table_insert(ht, GINT_TO_POINTER(dsec_entity->sequence_number), (gpointer)dsec_entity) == TRUE){
+    printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(dsec_entity->sequence_number)));
+    printf("SQ : %d\n", dsec_entity->sequence_number);
+    printf("Entity : %d\n", dsec_entity->entity_type);
+    printf("====================================\n");
 
-  utils_to_array(desc_array, desc_ptr, DELIMITER);
+  }
+}
 
   dsec_entity = (DsectionEntity *) malloc(sizeof(DsectionEntity));
 
