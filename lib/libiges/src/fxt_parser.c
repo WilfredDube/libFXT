@@ -96,7 +96,7 @@ char *get_line(IgesFile *fp, char *line){
 }
 
 void
-get_dsection(IgesFile *fp, char *lines)
+get_dsection(IgesFile *fp, DsectionEntity *ds)
 {
   char *line = malloc(700);
   char *line2 = malloc(700);
