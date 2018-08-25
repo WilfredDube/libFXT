@@ -250,4 +250,21 @@ parser_find_entity(int lookup_key, void *key, void *value)
   // printf("ON PRINT>>>>>>>>>>>>>>>>>>>>\n");
   // g_hash_table_foreach(dsection_ht, print_values, NULL);
 }
+
+void
+print_dsec(DsectionEntity *ds)
+{
+  printf("%d\n", ds->entity_type);
 }
+//
+// void
+// print_values(gpointer key, gpointer value, gpointer userdata)
+// {
+//   int realkey = GPOINTER_TO_INT(key);
+//   DsectionEntity *realvalue = (DsectionEntity *)value;
+//
+//   printf("KEY : %d\n", realkey);
+//   printf("SQ : %d\n", realvalue->sequence_number);
+//   printf("Entity : %d\n", realvalue->entity_type);
+//   printf("====================================\n");
+// }
