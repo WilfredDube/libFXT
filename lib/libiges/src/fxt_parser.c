@@ -100,6 +100,7 @@ get_dsection(IgesFile *fp, DsectionEntity *ds)
 {
   char *line1 = malloc(91);
   char *line2 = malloc(91);
+  dsection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
 
   line = fgets(line, 81, fp);
   while(line != NULL){
