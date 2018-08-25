@@ -102,15 +102,26 @@ get_dsection(IgesFile *fp, DsectionEntity *ds)
   char *line2 = malloc(91);
   dsection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
 
-  line = fgets(line, 81, fp);
-  while(line != NULL){
-    if(line[72] == 'D'){
-      line = fgets(line, 81, fp);
-      strncat(lines, line, 72);
-      line2 = fgets(line, 81, fp);
-      strncat(lines, line2, 27);
-    } else{
-      line = fgets(line, 81, fp);
+  line1 = get_line(fp, line1);
+  int i = 0;
+  while (line1) {
+    if (line1[72] == 'D') {
+      line2 = get_line(fp, line2);
+      // printf("Line 1 : %s", line1);
+      // printf("Line 2 : %s", line2);
+
+      parser_dsection_new(ds, line1, line2);
+      // printf("%d\n", ds->sequence_number);
+      parser_add_ds_object(dsection_ht, ds);
+      ++i;
+      ds = (DsectionEntity *) malloc(sizeof(DsectionEntity));
+
+      if (i == 5){
+        // break;
+      }
+      line1 = get_line(fp, line1);
+    } else {
+      line1 = get_line(fp, line1);
     }
   }
 }
