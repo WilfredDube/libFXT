@@ -236,6 +236,18 @@ parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity)
   }
 }
 
-  dsec_entity = (DsectionEntity *) malloc(sizeof(DsectionEntity));
+void
+parser_find_entity(int lookup_key, void *key, void *value)
+{
+  // return (DsectionEntity *)g_hash_table_lookup(dsection_ht, GINT_TO_POINTER(1));
+  gpointer *d = g_hash_table_lookup(dsection_ht, GINT_TO_POINTER(lookup_key));
 
+  if (d) {
+    /* code */
+    print_dsec((DsectionEntity *)d);
+  }
+
+  // printf("ON PRINT>>>>>>>>>>>>>>>>>>>>\n");
+  // g_hash_table_foreach(dsection_ht, print_values, NULL);
+}
 }
