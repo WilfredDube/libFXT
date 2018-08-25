@@ -34,7 +34,8 @@
 
 GHashTable *dsection_ht = NULL;
 
-// GHashTable *temp_dsection, *temp_gsection, temp_psection;
+static void parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity);
+// static void print_values(gpointer key, gpointer value, gpointer userdata);
 
 int
 read_iges_line(FILE *f, char *s)
