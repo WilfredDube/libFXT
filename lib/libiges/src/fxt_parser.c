@@ -127,13 +127,13 @@ get_dsection(IgesFile *fp, DsectionEntity *ds)
 }
 
 void
-get_gsection(IgesFile *fp, char *lines)
+get_gsection(IgesFile *fp, char *lines, char ch)
 {
   char *line = malloc(700);
 
   line = fgets(line, 81, fp);
   while(line != NULL){
-    if(line[72] == 'G'){
+    if(line[72] == ch){
       strncat(lines, line, 72);
       line = fgets(line, 81, fp);
     } else{
