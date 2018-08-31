@@ -89,6 +89,7 @@ typedef FILE IgesFile;
 void get_field(char s[], char sub[], int p, int l);
 void get_gsection(IgesFile *fp, char *line, char ch);
 void get_dsection(IgesFile *fp, DsectionEntity *ds);
+void get_psection(IgesFile *fp, PsectionEntityData *ps);
 void parser_gsection_new(GsectionModelDesc *gsec_model_desc, char *desc_ptr);
 void parser_dsection_new(DsectionEntity *dsec_entity, char *line1, char *line2);
 char *dsection_get_model_space_curve_type(int form_number);
