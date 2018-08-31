@@ -166,6 +166,13 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       // vertex_get_coords(NULL, ((VertexList *)ps_object->entity_data_object)->vertices[0]);
       // printf("%d\n", ((VertexList *)ps_object->entity_data_object)->n);
       break;
+    case 504:
+      ps_object->entity_param_ptr = sequence_number;
+      ps_object->entity_type = entity_no;
+      ps_object->entity_name = "EDGE LIST";
+      // ps_object->entity_data_object = edgelist_extract(desc_array);
+      // parser_add_ps_object(psection_ht, ps_object);
+      break;
   }
 
 }
