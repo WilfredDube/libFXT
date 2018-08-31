@@ -91,15 +91,4 @@ edgelist_extract(char *edgelist_array[])
     x += 5; /* Jump to the next edge */
     y++;
   }
-
-  psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData*));
-
-  psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, edgelist);
-
-  for (i = 0; i < PARAM_MAX; i++){
-    edgelist_array[i] = NULL;
-    free(edgelist_array[i]);
-  }
-
-  return psd;
 }
