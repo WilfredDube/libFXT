@@ -37,6 +37,7 @@ GHashTable *dsection_ht = NULL;
 GHashTable *psection_ht = NULL;
 
 void parser_psection_new(PsectionEntityData *ps_object, char *desc_ptr, int sequence_number);
+void parser_add_ps_object(GHashTable * ht, PsectionEntityData *ps);
 static void parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity);
 // static void print_values(gpointer key, gpointer value, gpointer userdata);
 
@@ -169,6 +170,19 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
 }
 
 void
+parser_add_ps_object(GHashTable * ht, PsectionEntityData *ps)
+{
+  // printf("ON ADD>>>>>>>>>>>>\n");
+  // if(g_hash_table_insert(ht, GINT_TO_POINTER(ps->sequence_number), (gpointer)ps) == TRUE){
+    // printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(dsec_entity->sequence_number)));
+    // printf("SQ : %d\n", dsec_entity->sequence_number);
+    // printf("Entity : %d\n", dsec_entity->entity_type);
+    // printf("====================================\n");
+
+  // }
+}
+
+void
 get_dsection(IgesFile *fp, DsectionEntity *ds)
 {
   char *line1 = malloc(91);
@@ -221,6 +235,7 @@ parser_gsection_new(GsectionModelDesc *gsec_model_desc, char *desc_ptr)
   char *desc_array[GSEC_MAX] = {NULL};
 
   utils_to_array(desc_array, desc_ptr, DELIMITER);
+  // printf("%s\n", desc_ptr);
 
   gsec_model_desc = (GsectionModelDesc *) malloc(sizeof(GsectionModelDesc));
 
