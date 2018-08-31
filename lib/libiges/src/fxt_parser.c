@@ -357,3 +357,11 @@ print_dsec(DsectionEntity *ds)
 //   printf("Entity : %d\n", realvalue->entity_type);
 //   printf("====================================\n");
 // }
+
+Vertex *
+dsection_get_vertex(int lookup_key, int index)
+{
+  gpointer *ps_object = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(lookup_key));
+
+  return ((VertexList *)ps_object)->vertices[index - 1];
+}
