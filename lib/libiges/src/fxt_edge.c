@@ -57,13 +57,8 @@ edge_new(char *model_space_curve_type, Vertex *start_vertex, Vertex *terminate_v
 EdgeList *
 edgelist_extract(char *edgelist_array[])
 {
-  int i = 0;
-  char *edgelist_array[PARAM_MAX] = { NULL };
   Edge *edge = NULL;
   EdgeList *edgelist = NULL;
-  PsectionEntityData * psd = NULL;
-
-  utils_to_array(edgelist_array, ps_data, DELIMITER);
 
   edgelist = (EdgeList *)malloc(sizeof(* edgelist));
 
