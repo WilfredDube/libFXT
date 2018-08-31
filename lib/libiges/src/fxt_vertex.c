@@ -69,17 +69,12 @@ vertex_new(long double x, long double y, long double z)
 VertexList *
 vertexlist_extract(char *vertexlist_array[])
 {
-  char *vertexlist_array[PARAM_MAX] = {NULL};
   Vertex *vt = NULL;
   VertexList *vertexlist = NULL;
-  PsectionEntityData * psd = NULL;
-
-  utils_to_array(vertexlist_array, ps_data, DELIMITER);
 
   vertexlist = (VertexList *)malloc(sizeof(VertexList));
 
   vertexlist->n = utils_to_int(vertexlist_array[1]);
-  printf("%s\n", vertexlist_array[0]);
 
   size_t y, x;
   for (y = 0, x = 2; y < vertexlist->n; y++, x+=3)
@@ -95,9 +90,4 @@ vertexlist_extract(char *vertexlist_array[])
     vertexlist->vertices[y] = vt;
   }
 
-  psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData*));
-
-  // psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, vertexlist);
-
-  return psd;
 }
