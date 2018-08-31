@@ -54,8 +54,8 @@ edge_new(char *model_space_curve_type, Vertex *start_vertex, Vertex *terminate_v
 * @param ps_data unprocessed pd section data (0 - 64).
 * @return pointer to the PsectionEntityData.
 */
-PsectionEntityData *
-edgelist_extract(const int pd_pointer, char *ps_data)
+EdgeList *
+edgelist_extract(char *edgelist_array[])
 {
   int i = 0;
   char *edgelist_array[PARAM_MAX] = { NULL };
