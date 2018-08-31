@@ -130,7 +130,6 @@ get_psection(IgesFile *fp, PsectionEntityData *ps)
       if (strchr(temp_str, ';')) {        /* ';' terminator found in string */
         /* Tokenize String & PS object creation */
         parser_psection_new(ps, temp_str, sequence_number);
-        parser_add_ps_object(psection_ht, ps);
 
         /* Initialize variable for next entity */
         ps = (PsectionEntityData *)malloc(sizeof(PsectionEntityData));
@@ -163,6 +162,7 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_type = entity_no;
       ps_object->entity_name = "VERTEXT LIST";
       ps_object->entity_data_object = vertexlist_extract(desc_array);
+      parser_add_ps_object(psection_ht, ps_object);
       // vertex_get_coords(NULL, ((VertexList *)ps_object->entity_data_object)->vertices[0]);
       // printf("%d\n", ((VertexList *)ps_object->entity_data_object)->n);
       break;
