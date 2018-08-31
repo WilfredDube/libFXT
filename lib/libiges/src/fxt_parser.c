@@ -31,6 +31,7 @@
 #include <glib.h>
 
 #define GSEC_MAX 26
+#define PS_MAX 100000
 
 GHashTable *dsection_ht = NULL;
 
