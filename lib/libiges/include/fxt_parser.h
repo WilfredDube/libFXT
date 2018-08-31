@@ -92,11 +92,11 @@ void get_dsection(IgesFile *fp, DsectionEntity *ds);
 void get_psection(IgesFile *fp, PsectionEntityData *ps);
 void parser_gsection_new(GsectionModelDesc *gsec_model_desc, char *desc_ptr);
 void parser_dsection_new(DsectionEntity *dsec_entity, char *line1, char *line2);
-char *dsection_get_model_space_curve_type(int form_number);
 void parser_find_entity(int lookup_key, void *key, void *value);
 void print_dsec(DsectionEntity *ds);
 
-Vertex *dsection_get_vertex(int entity_ptr, int index);
+char *dsection_get_model_space_curve_type(int form_number);
+Vertex *dsection_get_vertex(int lookup_key, int index);
 Edge *dsection_get_edge(int entity_ptr, int index);
 Loop *dsection_get_loop(int entity_ptr);
 
