@@ -78,9 +78,9 @@ struct _DsectionEntity {
 };
 
 struct _PsectionEntityData {
-  int entity_param_ptr;
+  int entity_param_ptr; /* Sequence number */
   int entity_type;
-  int entity_name;
+  char *entity_name;
   void *entity_data_object;
 };
 
