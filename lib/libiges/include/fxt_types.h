@@ -24,9 +24,9 @@ typedef struct _CompositeCurve CompositeCurve;
 /* entity : 124 */
 typedef struct _TransformationMatrix TransformationMatrix;
 
-/* entity : 124 */
-typedef struct _RBSCurve RBSCurve;
 /* entity : 126 */
+typedef struct _RBSCurve RBSCurve;
+/* entity : 128 */
 typedef struct _RBSSurface RBSSurface;
 
 /* entity : 142*/
