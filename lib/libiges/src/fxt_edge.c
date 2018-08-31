@@ -91,4 +91,6 @@ edgelist_extract(char *edgelist_array[])
     x += 5; /* Jump to the next edge */
     y++;
   }
+  
+  return edgelist;
 }
