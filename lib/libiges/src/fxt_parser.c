@@ -36,6 +36,7 @@
 GHashTable *dsection_ht = NULL;
 GHashTable *psection_ht = NULL;
 
+void parser_psection_new(PsectionEntityData *ps_object, char *desc_ptr, int sequence_number);
 static void parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity);
 // static void print_values(gpointer key, gpointer value, gpointer userdata);
 
@@ -141,6 +142,30 @@ get_psection(IgesFile *fp, PsectionEntityData *ps)
 
     line = get_line(fp, line);
   }
+}
+
+void
+parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_number)
+{
+  int entity_no;
+  char *desc_array[PARAM_MAX] = {NULL};
+
+  ps_object = (PsectionEntityData *)malloc(sizeof(PsectionEntityData));
+
+  utils_to_array(desc_array, ps_line, DELIMITER);
+  entity_no = utils_to_int(desc_array[0]);
+
+  switch (entity_no) {
+    case 502:
+      ps_object->entity_param_ptr = sequence_number;
+      ps_object->entity_type = entity_no;
+      ps_object->entity_name = "VERTEXT LIST";
+      ps_object->entity_data_object = vertexlist_extract(desc_array);
+      // vertex_get_coords(NULL, ((VertexList *)ps_object->entity_data_object)->vertices[0]);
+      // printf("%d\n", ((VertexList *)ps_object->entity_data_object)->n);
+      break;
+  }
+
 }
 
 void
