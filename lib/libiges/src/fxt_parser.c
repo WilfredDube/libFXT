@@ -174,13 +174,13 @@ void
 parser_add_ps_object(GHashTable * ht, PsectionEntityData *ps)
 {
   // printf("ON ADD>>>>>>>>>>>>\n");
-  // if(g_hash_table_insert(ht, GINT_TO_POINTER(ps->sequence_number), (gpointer)ps) == TRUE){
-    // printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(dsec_entity->sequence_number)));
-    // printf("SQ : %d\n", dsec_entity->sequence_number);
+  if(g_hash_table_insert(ht, GINT_TO_POINTER(ps->entity_param_ptr), (gpointer)ps) == TRUE){
+    printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(ps->entity_param_ptr)));
+    printf("Entity Name : %s\n", ps->entity_name);
     // printf("Entity : %d\n", dsec_entity->entity_type);
     // printf("====================================\n");
 
-  // }
+  }
 }
 
 void
