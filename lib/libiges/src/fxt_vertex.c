@@ -63,12 +63,11 @@ vertex_new(long double x, long double y, long double z)
 }
 
 /** Creates a VertexList entity object from the pd sections data.
-* @param pd_pointer key to uniquely identify each PsectionEntityData object.
-* @param ps_data unprocessed pd section data (0 - 64).
-* @return pointer to the PsectionEntityData.
+* @param vertexlist_array array of the Tokenized pd section string.
+* @return pointer to the VertexList object.
 */
-PsectionEntityData *
-vertexlist_extract(const int pd_pointer, char *ps_data)
+VertexList *
+vertexlist_extract(char *vertexlist_array[])
 {
   char *vertexlist_array[PARAM_MAX] = {NULL};
   Vertex *vt = NULL;
