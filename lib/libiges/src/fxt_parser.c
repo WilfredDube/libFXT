@@ -126,6 +126,7 @@ get_psection(IgesFile *fp, PsectionEntityData *ps)
 
       if (strchr(temp_str, ';')) {        /* ';' terminator found in string */
         /* Tokenize String & PS object creation */
+        parser_psection_new(ps, temp_str, sequence_number);
 
         /* Initialize variable for next entity */
         ps = (PsectionEntityData *)malloc(sizeof(PsectionEntityData));
