@@ -3,7 +3,7 @@
 
 #include "fxt_types.h"
 
-#define VERTICES_MAX 10000
+#define VERTICES_MAX 100000
 
 struct _Point {
   long double x;

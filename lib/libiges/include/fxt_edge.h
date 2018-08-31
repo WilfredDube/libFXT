@@ -3,7 +3,7 @@
 
 #include "fxt_types.h"
 
-#define EDGES_MAX 10000
+#define EDGES_MAX 100000
 
 struct _Edge {
   char *model_space_curve_type;
