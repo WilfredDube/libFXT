@@ -16,6 +16,6 @@ struct _EdgeList {
   Edge *edges[EDGES_MAX]; /**< Array of edges */
 };
 
-PsectionEntityData *edgelist_extract(const int pd_pointer, char *ps_data);
+EdgeList *edgelist_extract(char *ps_edgelist[]);
 
 #endif
