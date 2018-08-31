@@ -23,6 +23,7 @@
  */
 #include "../include/fxt_utils.h"
 #include "../include/fxt_vertex.h"
+#include "../include/fxt_edge.h"
 #include "../include/fxt_parser.h"
 
 #include <stdlib.h>
