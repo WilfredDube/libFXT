@@ -34,6 +34,7 @@
 #define PS_MAX 100000
 
 GHashTable *dsection_ht = NULL;
+GHashTable *psection_ht = NULL;
 
 static void parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity);
 // static void print_values(gpointer key, gpointer value, gpointer userdata);
