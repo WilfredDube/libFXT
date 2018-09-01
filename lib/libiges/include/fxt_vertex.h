@@ -17,7 +17,6 @@ struct _VertexList {
 };
 
 void vertex_get_coords(long double *arr, Vertex *vector);
-Vertex *vertex_new(long double x, long double y, long double z);
 VertexList *vertexlist_extract(char *vertexlist_array[]);
 
 #endif

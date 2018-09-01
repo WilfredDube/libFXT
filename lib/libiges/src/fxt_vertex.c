@@ -32,6 +32,8 @@
 #define ENTITY_TYPE 502 /**< IGES Entity Type */
 #define ENTITY_NAME "Vertex List" /**< IGES Entity Name */
 
+static Vertex *vertex_new(long double x, long double y, long double z);
+
 /** Breaks vertex object into x, y, z.
 * @param ret_array array to store return values.
 * @param vector the vertex break down.
