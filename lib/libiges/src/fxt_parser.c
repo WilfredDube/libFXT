@@ -408,6 +408,20 @@ dsection_get_edge(int entity_ptr, int index)
 
   return ((EdgeList *)ps_object)->edges[index - 1];
 }
+
+Loop *
+dsection_get_loop(int entity_ptr)
+{
+  gpointer *ps_object = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(entity_ptr));
+
+  if (ps_object == NULL) {
+    /* code */
+    return NULL;
+  }
+
+  return ((Loop *)ps_object);
+}
+
 int
 dsection_get_model_space_curve_type(int ds_index)
 {
