@@ -182,10 +182,11 @@ parser_add_ps_object(GHashTable * ht, PsectionEntityData *ps)
 {
   // printf("ON ADD>>>>>>>>>>>>\n");
   if(g_hash_table_insert(ht, GINT_TO_POINTER(ps->entity_param_ptr), (gpointer)ps) == TRUE){
+    printf("====================================\n");
     printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(ps->entity_param_ptr)));
     printf("Entity Name : %s\n", ps->entity_name);
-    // printf("Entity : %d\n", dsec_entity->entity_type);
-    // printf("====================================\n");
+    printf("Entity Type : %d\n", ps->entity_type);
+    printf("====================================\n");
 
   }
 }
@@ -322,12 +323,12 @@ parser_dsection_new(DsectionEntity *dsec_entity, char *line1, char *line2)
 void
 parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity)
 {
-  printf("ON ADD>>>>>>>>>>>>\n");
+  // printf("ON ADD>>>>>>>>>>>>\n");
   if(g_hash_table_insert(ht, GINT_TO_POINTER(dsec_entity->sequence_number), (gpointer)dsec_entity) == TRUE){
-    printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(dsec_entity->sequence_number)));
-    printf("SQ : %d\n", dsec_entity->sequence_number);
-    printf("Entity : %d\n", dsec_entity->entity_type);
-    printf("====================================\n");
+    // printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(dsec_entity->sequence_number)));
+    // printf("SQ : %d\n", dsec_entity->sequence_number);
+    // printf("Entity : %d\n", dsec_entity->entity_type);
+    // printf("====================================\n");
 
   }
 }
