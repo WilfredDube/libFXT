@@ -68,6 +68,11 @@ edgelist_extract(char *edgelist_array[])
   int x = 2, y = 1;
   while(edgelist_array[x] != NULL)
   {
+    if(y == edgelist->n){
+      // printf("EXIT\n");
+      break;
+    }
+
     /* edgelist_array[x] - CURV(1) pointer to the first model_space_curve in DE
     * utils_to_int() - converts CURV pointer to an integer.
     * dsection_get_model_space_curve_type() - gets the curve type of the entity.
