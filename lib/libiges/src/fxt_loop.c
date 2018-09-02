@@ -31,6 +31,11 @@
 #define ENTITY_TYPE 508 /**< IGES Entity Type */
 #define ENTITY_NAME "Loop" /**< IGES Entity Name */
 
+
+void print_num(Loop *lp) {
+  printf("%d\n", lp->n);
+}
+
 /** Creates a loop entity object from the pd sections data.
 * @param pd_pointer key to uniquely identify each PsectionEntityData object.
 * @param ps_data unprocessed pd section data (0 - 64).
