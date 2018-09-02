@@ -25,6 +25,7 @@
 #include "../include/fxt_vertex.h"
 #include "../include/fxt_edge.h"
 #include "../include/fxt_loop.h"
+#include "../include/fxt_face.h"
 #include "../include/fxt_parser.h"
 
 #include <stdlib.h>
@@ -179,8 +180,15 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_param_ptr = sequence_number;
       ps_object->entity_type = entity_no;
       ps_object->entity_name = "LOOP";
-      // ps_object->entity_data_object = loop_extract(desc_array);
-      // parser_add_ps_object(psection_ht, ps_object);
+      ps_object->entity_data_object = loop_extract(desc_array);
+      parser_add_ps_object(psection_ht, ps_object);
+      break;
+    case 510:
+      ps_object->entity_param_ptr = sequence_number;
+      ps_object->entity_type = entity_no;
+      ps_object->entity_name = "FACE";
+      ps_object->entity_data_object = face_extract(desc_array);
+      parser_add_ps_object(psection_ht, ps_object);
       break;
   }
 
