@@ -396,6 +396,18 @@ dsection_get_vertex(int lookup_key, int index)
   return ((VertexList *)ps_object)->vertices[index - 1];
 }
 
+Edge *
+dsection_get_edge(int entity_ptr, int index)
+{
+  gpointer *ps_object = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(entity_ptr));
+
+  if (ps_object == NULL) {
+    /* code */
+    return NULL;
+  }
+
+  return ((EdgeList *)ps_object)->edges[index - 1];
+}
 int
 dsection_get_model_space_curve_type(int ds_index)
 {
