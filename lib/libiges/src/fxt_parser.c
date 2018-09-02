@@ -173,6 +173,12 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_data_object = edgelist_extract(desc_array);
       parser_add_ps_object(psection_ht, ps_object);
       break;
+    case 508:
+      ps_object->entity_param_ptr = sequence_number;
+      ps_object->entity_type = entity_no;
+      ps_object->entity_name = "LOOP";
+      ps_object->entity_data_object = loop_extract(desc_array);
+      parser_add_ps_object(psection_ht, ps_object);
       break;
   }
 
