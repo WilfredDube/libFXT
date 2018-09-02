@@ -24,6 +24,7 @@
 #include "../include/fxt_utils.h"
 #include "../include/fxt_vertex.h"
 #include "../include/fxt_edge.h"
+#include "../include/fxt_loop.h"
 #include "../include/fxt_parser.h"
 
 #include <stdlib.h>
@@ -163,6 +164,7 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_name = "VERTEXT LIST";
       ps_object->entity_data_object = vertexlist_extract(desc_array);
       parser_add_ps_object(psection_ht, ps_object);
+      /* TODO : IMPORTANT CODE BELOW */
       // vertex_get_coords(NULL, ((VertexList *)ps_object->entity_data_object)->vertices[0]);
       // printf("%d\n", ((VertexList *)ps_object->entity_data_object)->n);
       break;
@@ -177,8 +179,8 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_param_ptr = sequence_number;
       ps_object->entity_type = entity_no;
       ps_object->entity_name = "LOOP";
-      ps_object->entity_data_object = loop_extract(desc_array);
-      parser_add_ps_object(psection_ht, ps_object);
+      // ps_object->entity_data_object = loop_extract(desc_array);
+      // parser_add_ps_object(psection_ht, ps_object);
       break;
   }
 
