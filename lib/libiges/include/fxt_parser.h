@@ -95,7 +95,7 @@ void parser_dsection_new(DsectionEntity *dsec_entity, char *line1, char *line2);
 void parser_find_entity(int lookup_key, void *key, void *value);
 void print_dsec(DsectionEntity *ds);
 
-char *dsection_get_model_space_curve_type(int form_number);
+int dsection_get_model_space_curve_type(int ds_index);
 Vertex *dsection_get_vertex(int lookup_key, int index);
 Edge *dsection_get_edge(int entity_ptr, int index);
 Loop *dsection_get_loop(int entity_ptr);
