@@ -41,34 +41,26 @@ void print_num(Loop *lp) {
 * @param ps_data unprocessed pd section data (0 - 64).
 * @return pointer to the PsectionEntityData.
 */
-PsectionEntityData *
-Loop_extract(const int pd_pointer, char *ps_data)
+Loop *
+loop_extract(char *loop_array[])
 {
   int x = 2, y = 0, k, type;
-  char *edge_array[PARAM_MAX] = { NULL };
   Loop *loop = NULL;
-  PsectionEntityData * psd = NULL;
-
-  utils_to_array(edge_array, ps_data, DELIMITER);
 
   loop = (Loop *) malloc(sizeof(* loop));
-  loop->n = utils_to_int(edge_array[1]);
+  loop->n = utils_to_int(loop_array[1]);
 
-  while (edge_array[x] != NULL){
-    type = utils_to_int(edge_array[x]); /* type */\
-    k = utils_to_int(edge_array[x + 4]);
+  while (loop_array[x] != NULL){
+    type = utils_to_int(loop_array[x]); /* type */\
+    k = utils_to_int(loop_array[x + 4]);
 
     if (type == 0){
-      loop->edges[y] = dsection_get_edge(utils_to_int(edge_array[x + 1]), utils_to_int(edge_array[x + 2]));
+      loop->edges[y] = dsection_get_edge(utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]));
     } else {
-      loop->edges[y] = dsection_get_vertex(utils_to_int(edge_array[x + 1]), utils_to_int(edge_array[x + 2]));
+      loop->edges[y] = dsection_get_vertex(utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]));
     }
     x = 9 + k;
   }
 
-  psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData *));
-
-  psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, loop);
-
-  return psd;
+  return loop;
 }
