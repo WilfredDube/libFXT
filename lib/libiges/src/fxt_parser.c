@@ -372,3 +372,15 @@ dsection_get_vertex(int lookup_key, int index)
 
   return ((VertexList *)ps_object)->vertices[index - 1];
 }
+
+int
+dsection_get_model_space_curve_type(int ds_index)
+{
+  gpointer *ds = g_hash_table_lookup(dsection_ht, GINT_TO_POINTER(ds_index));
+
+  if (ds == NULL) {
+    return -1;
+  }
+
+  return ((DsectionEntity *)ds)->form_number;
+}
