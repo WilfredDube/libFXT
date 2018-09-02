@@ -38,30 +38,37 @@ static unsigned face_id = 1;
 * @param ps_data unprocessed pd section data (0 - 64).
 * @return pointer to the PsectionEntityData.
 */
-PsectionEntityData *
-face_extract(int pd_pointer, char * ps_data)
+Face *
+face_extract(char *face_array[])
 {
+  int x, y = 0, N;
   Face *face = NULL;
-  char *face_array[PARAM_MAX] = {NULL};
-  PsectionEntityData *psd = NULL;
-
-  utils_to_array(face_array, ps_data, DELIMITER);
+  // char *face_array[PARAM_MAX] = {NULL};
+  // PsectionEntityData *psd = NULL;
+  //
+  // utils_to_array(face_array, ps_data, DELIMITER);
 
   face = (Face *)malloc(sizeof(* face));
 
   sprintf(face->face_id, "F%d", face_id);
 
-  face->surface = utils_to_int(face_array[1]);
+  face->surface_ptr = utils_to_int(face_array[1]);
   face->n = utils_to_int(face_array[2]);
   face->outer_flag = (bool)utils_to_int(face_array[3]);
 
-  int x, N = face->n;
-  for (x = 4, y =0; (x - 4) < N; x++, y++){
-     face->inner_loop[y]= dsection_get_loop(utils_to_int(face_array[x]));
+  if ((face->outer_flag == 1) && (face->n > 1)) {
+    face->outer_loop[y]= dsection_get_loop(utils_to_int(face_array[0]));
   }
 
-  psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData *));
-  psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, face);
-
-  return psd;
+  N = face->n;
+  for (x = 4; (x - 4) < N; x++, y++){
+      face->inner_loop[y]= dsection_get_loop(utils_to_int(face_array[x]));
+  }
+  //
+  // psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData *));
+  // psd = psection_entity_object_new(pd_pointer, ENTITY_TYPE, ENTITY_NAME, face);
+  //
+  // return psd;
+  face_id++;
+  return face;
 }
