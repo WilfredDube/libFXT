@@ -38,7 +38,7 @@
 * @returns Edge object.
 */
 static Edge *
-edge_new(char *model_space_curve_type, Vertex *start_vertex, Vertex *terminate_vertex)
+edge_new(int model_space_curve_type, Vertex *start_vertex, Vertex *terminate_vertex)
 {
   Edge *edge = (Edge *)malloc(sizeof(* edge));
 
@@ -72,7 +72,8 @@ edgelist_extract(char *edgelist_array[])
     * utils_to_int() - converts CURV pointer to an integer.
     * dsection_get_model_space_curve_type() - gets the curve type of the entity.
     */
-    char *curve_type = (char *)dsection_get_model_space_curve_type(utils_to_int(edgelist_array[x]));
+
+    int curve_type = dsection_get_model_space_curve_type(utils_to_int(edgelist_array[x]));
 
     /*
     * edgelist_array[x + 1] - Pointer to the DE of the Vertex List Entity for the start vertex
