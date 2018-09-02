@@ -29,7 +29,7 @@
 #include <stdlib.h>
 
 #define ENTITY_TYPE 504 /**< IGES Entity Type */
-#define ENTITY_NAME "Edgelist" /**< IGES Entity Name */
+#define ENTITY_NAME "Edge List" /**< IGES Entity Name */
 
 /** Create a new Edge object.
 * @param model_space_curve_ptr Pointer to the DE of the first model space curve
@@ -65,7 +65,7 @@ edgelist_extract(char *edgelist_array[])
   /* assign the value for N. (N > 0). */
   edgelist->n = utils_to_int(edgelist_array[1]);
 
-  int x = 2, y = 0;
+  int x = 2, y = 1;
   while(edgelist_array[x] != NULL)
   {
     /* edgelist_array[x] - CURV(1) pointer to the first model_space_curve in DE
@@ -91,6 +91,6 @@ edgelist_extract(char *edgelist_array[])
     x += 5; /* Jump to the next edge */
     y++;
   }
-  
+
   return edgelist;
 }
