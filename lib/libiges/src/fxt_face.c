@@ -60,9 +60,15 @@ face_extract(char *face_array[])
     face->outer_loop[y]= dsection_get_loop(utils_to_int(face_array[0]));
   }
 
+  int z = 1;
   N = face->n;
+  // printf("%d\n", N);
   for (x = 4; (x - 4) < N; x++, y++){
+    if (z == N) {
+      break;
+    }
       face->inner_loop[y]= dsection_get_loop(utils_to_int(face_array[x]));
+      z++;
   }
   //
   // psd = (PsectionEntityData *)malloc(sizeof(PsectionEntityData *));
