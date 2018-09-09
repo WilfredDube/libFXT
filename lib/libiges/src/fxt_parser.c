@@ -135,6 +135,58 @@ get_psection(IgesFile *fp, PsectionEntityData *ps)
         parser_psection_new(ps, temp_str, sequence_number);
 
 void
+get_psection_edge_list(IgesFile *fp, PsectionEntityData *ps)
+{
+  int sequence_number = 0;
+  static int line_count = 0;
+  static int ps_object_count = 0;
+  char temp_str[PS_MAX] = "";
+  char *line = malloc(100);
+  char substr[70];
+  char *desc_array[PARAM_MAX] = {NULL};
+
+  // psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
+
+  line = get_line(fp, line);
+
+  while (line){
+    if (line[72] == 'P') {
+      ++line_count;
+      /* Add line to temp_str */
+      get_field(line, substr, 1, 64);
+      strncat(temp_str, substr, 65);
+
+      if (line_count == 1) {
+        /* get object 's sequence number */
+        get_field(line, substr, 74, 8);
+        sequence_number = utils_to_int(substr);
+      }
+
+      if (strchr(temp_str, ';')) {        /* ';' terminator found in string */
+        /* Tokenize String & PS object creation */
+        char *str = (char *)malloc(strlen(temp_str) + 1);
+        strcpy(str, temp_str);
+        utils_to_array(desc_array, str, DELIMITER);
+
+        if (utils_to_int(desc_array[0]) == 504){
+          parser_psection_new(ps, temp_str, sequence_number);
+        }
+
+        /* Initialize variable for next entity */
+        ps = (PsectionEntityData *)malloc(sizeof(PsectionEntityData));
+        temp_str[0] = '\0';
+        line_count = 0;
+
+        /* Count created objects */
+        ++ps_object_count;
+      }
+    }
+
+    line = get_line(fp, line);
+  }
+}
+
+void
 get_psection_loop(IgesFile *fp, PsectionEntityData *ps)
 {
   int sequence_number = 0;
