@@ -200,11 +200,12 @@ parser_add_ps_object(GHashTable * ht, PsectionEntityData *ps)
 {
   // printf("ON ADD>>>>>>>>>>>>\n");
   if(g_hash_table_insert(ht, GINT_TO_POINTER(ps->entity_param_ptr), (gpointer)ps) == TRUE){
-    printf("====================================\n");
-    printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(ps->entity_param_ptr)));
-    printf("Entity Name : %s\n", ps->entity_name);
-    printf("Entity Type : %d\n", ps->entity_type);
-    printf("====================================\n");
+    // printf("====================================\n");
+    // printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(ps->entity_param_ptr)));
+    // printf("Entity Name : %s\n", ps->entity_name);
+    // printf("Entity Type : %d\n", ps->entity_type);
+    // printf("Data Object : %p\n", (char *)ps->entity_data_object);
+    // printf("====================================\n");
 
   }
 }
@@ -316,6 +317,7 @@ parser_dsection_new(DsectionEntity *dsec_entity, char *line1, char *line2)
   dsec_entity->view_ptr = utils_to_int(substr); /** TODO: Investigate the use of this value. */
   get_field(line1, substr, 49, 8);
   dsec_entity->transmatrix = utils_to_int(substr);
+  // printf("%d\n", dsec_entity->transmatrix);
   dsec_entity->entity_transmatrix = NULL;
   get_field(line1, substr, 57, 7);
   dsec_entity->label_display_assoc = utils_to_int(substr);
