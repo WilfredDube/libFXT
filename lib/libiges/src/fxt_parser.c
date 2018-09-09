@@ -371,6 +371,29 @@ print_dsec(DsectionEntity *ds)
 {
   printf("%d\n", ds->entity_type);
 }
+
+void
+parser_dsection_add_entitydata(gpointer key, gpointer value, gpointer userdata)
+{
+  gpointer *obj = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(((DsectionEntity *)value)->ps_data_ptr));
+  if (obj != NULL) {
+    // printf(">%p\n", (VertexList *)((PsectionEntityData *)obj)->entity_data_object);
+    (((DsectionEntity *)value)->entity_object) = ((PsectionEntityData *)obj)->entity_data_object;
+    printf("%p\n", &(((DsectionEntity *)value)->entity_type));
+    printf("%p\n", &(((DsectionEntity *)value)->ps_data_ptr));
+    printf("%p\n", (((DsectionEntity *)value)->entity_object));
+    printf("%p\n", &(((DsectionEntity *)value)->structure));
+    printf("%p\n", &(((DsectionEntity *)value)->line_font_pattern));
+    printf("%p\n", &(((DsectionEntity *)value)->layer_or_level));
+    printf("%p\n", &(((DsectionEntity *)value)->transmatrix));
+    printf("%p\n", (((DsectionEntity *)value)->entity_transmatrix));
+    printf("%p\n", &(((DsectionEntity *)value)->label_display_assoc));
+    printf("%p\n", &(((DsectionEntity *)value)->status_number));
+    printf("%p\n", &(((DsectionEntity *)value)->sequence_number));
+    printf("===================================================\n");
+    }
+}
+
 void
 parser_dsection_add_transmatrix(gpointer key, gpointer value, gpointer userdata)
 {
