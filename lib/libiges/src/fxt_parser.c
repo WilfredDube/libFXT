@@ -372,6 +372,16 @@ print_dsec(DsectionEntity *ds)
   printf("%d\n", ds->entity_type);
 }
 void
+parser_dsection_add_transmatrix(gpointer key, gpointer value, gpointer userdata)
+{
+  if (((DsectionEntity *)value)->transmatrix != 0) {
+    // gpointer *obj = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(((DsectionEntity *)value)->transmatrix));
+    // printf("wwwwww%s\n", ((PsectionEntityData *)obj)->entity_name);
+    (((DsectionEntity *)value)->entity_transmatrix) = (TransformationMatrix *)((PsectionEntityData *) g_hash_table_lookup(psection_ht, GINT_TO_POINTER(((DsectionEntity *)value)->transmatrix)))->entity_data_object;
+  }
+}
+
+void
 parser_reassign_caller(void)
 {
   g_hash_table_foreach(dsection_ht, parser_dsection_add_transmatrix, NULL);
