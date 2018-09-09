@@ -156,6 +156,7 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
 
   ps_object = (PsectionEntityData *)malloc(sizeof(PsectionEntityData));
 
+  // printf("%s\n", ps_line);
   utils_to_array(desc_array, ps_line, DELIMITER);
   entity_no = utils_to_int(desc_array[0]);
 
@@ -193,6 +194,7 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       break;
   }
 
+  *desc_array = "";
 }
 
 void
