@@ -40,6 +40,8 @@ GHashTable *dsection_ht = NULL;
 GHashTable *psection_ht = NULL;
 
 // static void parser_psection_reassign(gpointer key, gpointer value, gpointer userdata);
+static void parser_dsection_add_entitydata(gpointer key, gpointer value, gpointer userdata);
+static void parser_dsection_add_transmatrix(gpointer key, gpointer value, gpointer userdata);
 void parser_psection_new(PsectionEntityData *ps_object, char *desc_ptr, int sequence_number);
 void parser_add_ps_object(GHashTable * ht, PsectionEntityData *ps);
 static void parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity);
