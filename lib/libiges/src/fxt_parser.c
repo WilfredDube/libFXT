@@ -39,6 +39,7 @@
 GHashTable *dsection_ht = NULL;
 GHashTable *psection_ht = NULL;
 
+// static void parser_psection_reassign(gpointer key, gpointer value, gpointer userdata);
 void parser_psection_new(PsectionEntityData *ps_object, char *desc_ptr, int sequence_number);
 void parser_add_ps_object(GHashTable * ht, PsectionEntityData *ps);
 static void parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity);
@@ -369,6 +370,12 @@ void
 print_dsec(DsectionEntity *ds)
 {
   printf("%d\n", ds->entity_type);
+}
+void
+parser_reassign_caller(void)
+{
+  g_hash_table_foreach(dsection_ht, parser_dsection_add_transmatrix, NULL);
+  g_hash_table_foreach(dsection_ht, parser_dsection_add_entitydata, NULL);
 }
 //
 // void

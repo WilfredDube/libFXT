@@ -102,6 +102,7 @@ int dsection_get_model_space_curve_type(int ds_index);
 Vertex *dsection_get_vertex(int lookup_key, int index);
 Edge *dsection_get_edge(int entity_ptr, int index);
 Loop *dsection_get_loop(int entity_ptr);
+void parser_reassign_caller(void);
 
 PsectionEntityData *psection_entity_object_new(const int pd_pointer, const int ENTITY_TYPE, const char *ENTITY_NAME, void * entity_object);
 
