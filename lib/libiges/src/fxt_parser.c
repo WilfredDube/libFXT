@@ -104,7 +104,7 @@ char *get_line(IgesFile *fp, char *line){
 }
 
 void
-get_psection(IgesFile *fp, PsectionEntityData *ps)
+get_psection_vt_list(IgesFile *fp, PsectionEntityData *ps)
 {
   int sequence_number = 0;
   static int line_count = 0;
@@ -112,6 +112,7 @@ get_psection(IgesFile *fp, PsectionEntityData *ps)
   char temp_str[PS_MAX] = "";
   char *line = malloc(100);
   char substr[70];
+  char *desc_array[PARAM_MAX] = {NULL};
 
   psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
 
@@ -132,7 +133,28 @@ get_psection(IgesFile *fp, PsectionEntityData *ps)
 
       if (strchr(temp_str, ';')) {        /* ';' terminator found in string */
         /* Tokenize String & PS object creation */
-        parser_psection_new(ps, temp_str, sequence_number);
+        char *str = (char *)malloc(strlen(temp_str) + 1);
+        strcpy(str, temp_str);
+        utils_to_array(desc_array, str, DELIMITER);
+
+        if (utils_to_int(desc_array[0]) == 502){
+          parser_psection_new(ps, temp_str, sequence_number);
+        }
+
+        /* Initialize variable for next entity */
+        ps = (PsectionEntityData *)malloc(sizeof(PsectionEntityData));
+        temp_str[0] = '\0';
+        line_count = 0;
+
+        /* Count created objects */
+        ++ps_object_count;
+      }
+    }
+
+    line = get_line(fp, line);
+  }
+}
+
 
 void
 get_psection_edge_list(IgesFile *fp, PsectionEntityData *ps)
