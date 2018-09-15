@@ -65,7 +65,7 @@ edgelist_extract(char *edgelist_array[])
   /* assign the value for N. (N > 0). */
   edgelist->n = utils_to_int(edgelist_array[1]);
 
-  int x = 2, y = 1;
+  int x = 2, y = 0;
   while(edgelist_array[x] != NULL)
   {
     if(y == edgelist->n){
