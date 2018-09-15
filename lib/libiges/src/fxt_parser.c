@@ -610,7 +610,10 @@ dsection_get_vertex(int lookup_key, int index)
     return NULL;
   }
 
-  return ((VertexList *)ps_object)->vertices[index - 1];
+  // printf("FOUND\n");
+  // printf("X : %d\n", ((VertexList *)ps_object)->n);
+  // printf("%Lg\n", ((VertexList *)((PsectionEntityData *)ps_object)->entity_data_object)->vertices[index - 1]->x);
+  return ((VertexList *)((PsectionEntityData *)ps_object)->entity_data_object)->vertices[index - 1];
 }
 
 Edge *
@@ -629,7 +632,9 @@ dsection_get_edge(int entity_ptr, int index)
     return NULL;
   }
 
-  return ((EdgeList *)ps_object)->edges[index - 1];
+  // printf("%s\n",((PsectionEntityData *)ps_object)->entity_name);
+  // printf("X : %Lg\n", ((EdgeList *)((PsectionEntityData *)ps_object)->entity_data_object)->edges[3]->start_vertex->x);
+  return ((EdgeList *)((PsectionEntityData *)ps_object)->entity_data_object)->edges[index - 1];
 }
 
 Loop *
