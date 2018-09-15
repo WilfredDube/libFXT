@@ -89,6 +89,7 @@ typedef FILE IgesFile;
 void get_field(char s[], char sub[], int p, int l);
 void get_gsection(IgesFile *fp, char *line, char ch);
 void get_dsection(IgesFile *fp, DsectionEntity *ds);
+void get_psection_rbspline_curve(IgesFile *fp, PsectionEntityData *ps);
 void get_psection_vt_list(IgesFile *fp, PsectionEntityData *ps);
 void get_psection_edge_list(IgesFile *fp, PsectionEntityData *ps);
 void get_psection_loop(IgesFile *fp, PsectionEntityData *ps);
