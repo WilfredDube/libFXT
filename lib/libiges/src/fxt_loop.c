@@ -55,6 +55,10 @@ loop_extract(char *loop_array[])
     type = utils_to_int(loop_array[x]); /* type */\
     k = utils_to_int(loop_array[x + 4]);
 
+    if ((y + 1) > loop->n) {
+      break;
+    }
+
     if (type == 0){
       loop->edges[y] = dsection_get_edge(utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]));
     } else {
