@@ -22,6 +22,7 @@
  * The Edgelist class represents the iges Edge List entity (Form 1 - 504).
  */
 #include "../include/fxt_utils.h"
+#include "../include/fxt_vertex.h"
 #include "../include/fxt_edge.h"
 #include "../include/fxt_parser.h"
 
@@ -45,6 +46,7 @@ edge_new(int model_space_curve_type, Vertex *start_vertex, Vertex *terminate_ver
   edge->model_space_curve_type = model_space_curve_type;
   edge->start_vertex = start_vertex;
   edge->terminate_vertex = terminate_vertex;
+  // printf("%d\n", edge->model_space_curve_type);
 
   return edge;
 }
@@ -79,21 +81,28 @@ edgelist_extract(char *edgelist_array[])
     */
 
     int curve_type = dsection_get_model_space_curve_type(utils_to_int(edgelist_array[x]));
-
     /*
     * edgelist_array[x + 1] - Pointer to the DE of the Vertex List Entity for the start vertex
     * edgelist_array[x + 2] - index value for the vertex in the Vertex List
     * edgelist_array[x + 3] - Pointer to the DE of the Vertex List Entity for the terminate vertex
     * edgelist_array[x + 2] - index value for the vertex in the Vertex List
     */
+
+    // printf("%d\n", utils_to_int(edgelist_array[x + 3]));
     Vertex *svt = (Vertex *)dsection_get_vertex(utils_to_int(edgelist_array[x + 1]), utils_to_int(edgelist_array[x + 2]));
     Vertex *tvt = (Vertex *)dsection_get_vertex(utils_to_int(edgelist_array[x + 3]), utils_to_int(edgelist_array[x + 4]));
+
+    if (svt == NULL) {
+      // printf("NULL!\n" );
+    }
+    // printf("Start %d: %Lg, %Lg, %Lg\n", y, tvt->x, tvt->y, tvt->z);
 
     edge = edge_new(curve_type, svt, tvt);
 
     edgelist->edges[y] = (Edge *)malloc(sizeof(Edge *));
     edgelist->edges[y] = edge;
 
+    // printf("%Lg\n", edgelist->edges[0]->start_vertex->x);
     x += 5; /* Jump to the next edge */
     y++;
   }
