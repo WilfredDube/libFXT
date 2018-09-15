@@ -22,6 +22,6 @@ struct _RBSCurve {
   long double znorm; /* Unit normal z (if planar) */
 };
 
-RBSCurve *rbscurve_extract(char *ps_edgelist[]);
+RBSCurve *rbscurve_extract(char *ps_rbsc[]);
 
 #endif
