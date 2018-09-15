@@ -86,13 +86,14 @@ vertexlist_extract(char *vertexlist_array[])
     long double y1 = utils_replace_char(vertexlist_array[x + 1], 'D', 'E');
     long double z1 = utils_replace_char(vertexlist_array[x + 2], 'D', 'E');
 
-    // printf("%ld: %Lg %Lg %Lg\n", x, x1, y1, z1);
+    // printf("%ld: %Lg, %Lg, %Lg\n", (y + 1), x1, y1, z1);
     vt = vertex_new(x1, y1, z1);
 
     vertexlist->vertices[y] = malloc(sizeof(Vertex));
     vertexlist->vertices[y] = vt;
   }
 
+  // printf("NUM : %d\n", vertexlist->n);
   // printf("%Lg\n", vertexlist->vertices[0]->x);
   return vertexlist;
 }
