@@ -603,6 +603,7 @@ dsection_get_vertex(int lookup_key, int index)
     return NULL;
   }
   // printf("%d\n", ((DsectionEntity *)ds_object)->ps_data_ptr);
+  gpointer *ps_object = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(((DsectionEntity *)ds_object)->ps_data_ptr));
 
   if (ps_object == NULL) {
     /* code */
