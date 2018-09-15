@@ -33,7 +33,18 @@
 #define ENTITY_NAME "Rational B-Spline Curve" /**< IGES Entity Name */
 
 RBSCurve *
-rbscurve_extract(char *ps_edgelist[])
+rbscurve_extract(char *ps_rbsc[])
 {
   RBSCurve *rbscurve = NULL;
+
+  rbscurve = (RBSCurve *)malloc(sizeof(RBSCurve));
+
+  rbscurve->k = utils_to_int(ps_rbsc[1]);
+  rbscurve->m = utils_to_int(ps_rbsc[2]);
+  rbscurve->PROP1 = utils_to_int(ps_rbsc[3]);
+  rbscurve->PROP2 = utils_to_int(ps_rbsc[4]);
+  rbscurve->PROP3 = utils_to_int(ps_rbsc[5]);
+  rbscurve->PROP4 = utils_to_int(ps_rbsc[6]);
+
+  return rbscurve;
 }
