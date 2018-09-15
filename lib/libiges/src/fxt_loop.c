@@ -63,8 +63,10 @@ loop_extract(char *loop_array[])
     // printf("Values : %d . %d . %d\n", type, utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]) );
     if (type == 0){
       loop->edges[y] = dsection_get_edge(utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]));
+      // printf("%d\n", y);
     } else {
-      loop->edges[y] = dsection_get_vertex(utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]));
+      // printf("vt\n");
+      loop->vertices[y] = dsection_get_vertex(utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]));
     }
     x = 9 + k;
   }
