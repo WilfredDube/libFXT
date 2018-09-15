@@ -68,7 +68,14 @@ loop_extract(char *loop_array[])
       // printf("vt\n");
       loop->vertices[y] = dsection_get_vertex(utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]));
     }
-    x = 9 + k;
+
+    if (k != 0) {
+      /* code */
+      // x = 9 + k;
+    }
+
+    x += 5;
+    ++y;
   }
 
 
