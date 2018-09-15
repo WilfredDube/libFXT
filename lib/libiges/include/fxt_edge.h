@@ -7,6 +7,7 @@
 
 struct _Edge {
   int model_space_curve_type;
+  int edge_type;
   Vertex *start_vertex;
   Vertex *terminate_vertex;
 };
