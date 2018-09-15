@@ -52,13 +52,15 @@ loop_extract(char *loop_array[])
   loop->n = utils_to_int(loop_array[1]);
 
   while (loop_array[x] != NULL){
-    type = utils_to_int(loop_array[x]); /* type */\
-    k = utils_to_int(loop_array[x + 4]);
 
     if ((y + 1) > loop->n) {
       break;
     }
 
+    type = utils_to_int(loop_array[x]); /* type */
+    // k = utils_to_int(loop_array[x + 4]);
+
+    // printf("Values : %d . %d . %d\n", type, utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]) );
     if (type == 0){
       loop->edges[y] = dsection_get_edge(utils_to_int(loop_array[x + 1]), utils_to_int(loop_array[x + 2]));
     } else {
