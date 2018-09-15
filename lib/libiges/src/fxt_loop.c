@@ -24,6 +24,7 @@
 #include "../include/fxt_utils.h"
 #include "../include/fxt_loop.h"
 #include "../include/fxt_parser.h"
+#include "../include/fxt_math.h"
 
 #include <string.h>
 #include <stdlib.h>
@@ -61,6 +62,13 @@ loop_extract(char *loop_array[])
     }
     x = 9 + k;
   }
+
+
+    // printf("LOOP = %Lg\n", (loop->edges[0])->start_vertex->x);
+  Vertex *vt = compute_normal(loop);
+
+  vt = NULL;
+  free(vt);
 
   return loop;
 }
