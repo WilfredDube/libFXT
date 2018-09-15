@@ -596,7 +596,13 @@ parser_reassign_caller(void)
 Vertex *
 dsection_get_vertex(int lookup_key, int index)
 {
-  gpointer *ps_object = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(lookup_key));
+  gpointer *ds_object = g_hash_table_lookup(dsection_ht, GINT_TO_POINTER(lookup_key));
+  if (ds_object == NULL) {
+    /* code */
+    // printf("ds NULL\n");
+    return NULL;
+  }
+  // printf("%d\n", ((DsectionEntity *)ds_object)->ps_data_ptr);
 
   if (ps_object == NULL) {
     /* code */
@@ -609,7 +615,13 @@ dsection_get_vertex(int lookup_key, int index)
 Edge *
 dsection_get_edge(int entity_ptr, int index)
 {
-  gpointer *ps_object = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(entity_ptr));
+  gpointer *ds_object = g_hash_table_lookup(dsection_ht, GINT_TO_POINTER(entity_ptr));
+  if (ds_object == NULL) {
+    /* code */
+    // printf("ds NULL\n");
+    return NULL;
+  }
+  gpointer *ps_object = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(((DsectionEntity *)ds_object)->ps_data_ptr));
 
   if (ps_object == NULL) {
     /* code */
