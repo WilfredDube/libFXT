@@ -12,9 +12,9 @@ struct _RBSCurve {
   int PROP2;
   int PROP3;
   int PROP4;
-  long double knot_sequence[];
-  long double weights[];
-  long double control_points[];
+  long double knot_sequence[RBSCURVE_MAX];
+  long double weights[RBSCURVE_MAX];
+  long double control_points[RBSCURVE_MAX];
   long double start_parameter;
   long double end_parameter;
   long double xnorm; /* Unit normal x (if planar) */
