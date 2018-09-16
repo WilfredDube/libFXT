@@ -50,6 +50,9 @@ rbscurve_extract(char *ps_rbsc[])
   rbscurve->PROP3 = utils_to_int(ps_rbsc[j + 4]);
   rbscurve->PROP4 = utils_to_int(ps_rbsc[j + 5]);
 
+  int N = 1 + K - M;
+  int A = N + 2 * M;
+
 
   return rbscurve;
 }
