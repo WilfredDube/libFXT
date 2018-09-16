@@ -59,6 +59,9 @@ rbscurve_extract(char *ps_rbsc[])
   int weightstart = knotend + 1;
   int weightend = weightstart + K;
 
+  int controlpstart = weightend + 1;
+  int controlpend = 9 + A + (4 * K) + 2;
+
 
   return rbscurve;
 }
