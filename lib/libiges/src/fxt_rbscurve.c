@@ -56,6 +56,9 @@ rbscurve_extract(char *ps_rbsc[])
   int knotstart = j + 6;
   int knotend = knotstart + A;
 
+  int weightstart = knotend + 1;
+  int weightend = weightstart + K;
+
 
   return rbscurve;
 }
