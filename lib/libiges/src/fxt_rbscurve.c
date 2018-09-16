@@ -39,12 +39,17 @@ rbscurve_extract(char *ps_rbsc[])
 
   rbscurve = (RBSCurve *)malloc(sizeof(RBSCurve));
 
-  rbscurve->k = utils_to_int(ps_rbsc[1]);
-  rbscurve->m = utils_to_int(ps_rbsc[2]);
-  rbscurve->PROP1 = utils_to_int(ps_rbsc[3]);
-  rbscurve->PROP2 = utils_to_int(ps_rbsc[4]);
-  rbscurve->PROP3 = utils_to_int(ps_rbsc[5]);
-  rbscurve->PROP4 = utils_to_int(ps_rbsc[6]);
+  rbscurve->k = utils_to_int(ps_rbsc[j]);
+  int K = rbscurve->k;
+
+  rbscurve->m = utils_to_int(ps_rbsc[j + 1]);
+  int M = rbscurve->m;
+
+  rbscurve->PROP1 = utils_to_int(ps_rbsc[j + 2]);
+  rbscurve->PROP2 = utils_to_int(ps_rbsc[j + 3]);
+  rbscurve->PROP3 = utils_to_int(ps_rbsc[j + 4]);
+  rbscurve->PROP4 = utils_to_int(ps_rbsc[j + 5]);
+
 
   return rbscurve;
 }
