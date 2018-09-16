@@ -62,6 +62,19 @@ rbscurve_extract(char *ps_rbsc[])
   int controlpstart = weightend + 1;
   int controlpend = 9 + A + (4 * K) + 2;
 
+  for (size_t i = 0, x = knotstart; x <= knotend; i++, x++) {
+    rbscurve->knot_sequence[i] = utils_to_float(ps_rbsc[x]);
+  }
+
+  for (size_t i = 0, x = weightstart; x <= weightend; i++, x++) {
+    rbscurve->weights[i] = utils_to_float(ps_rbsc[x]);
+  }
+
+  for (size_t i = 0, x = controlpstart; x <= controlpend; i++, x++) {
+    rbscurve->control_points[i] = utils_to_float(ps_rbsc[x]);
+  }
+
+  // printf("%Le\n", rbscurve->control_points[0]);
 
   return rbscurve;
 }
