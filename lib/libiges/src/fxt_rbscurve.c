@@ -36,6 +36,7 @@ RBSCurve *
 rbscurve_extract(char *ps_rbsc[])
 {
   RBSCurve *rbscurve = NULL;
+  int j = 1;
 
   rbscurve = (RBSCurve *)malloc(sizeof(RBSCurve));
 
