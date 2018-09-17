@@ -88,8 +88,13 @@ loop_extract(char *loop_array[])
       ++edge_count;
     }
 
-    // printf("LOOP = %Lg\n", (loop->edges[0])->start_vertex->x);
-  Vertex *vt = compute_normal(loop);
+    if ((edge_count == loop->n) && (loop->loop_type == -1)) {
+      loop->loop_type = PLANAR_SURFACE;
+      // printf("%d\n", edge_count);
+      break;
+    }
+  }
+
 
   vt = NULL;
   free(vt);
