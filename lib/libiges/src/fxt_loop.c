@@ -22,6 +22,8 @@
  * The Loop class represents the iges Loop entity (Form 1 - 508).
  */
 #include "../include/fxt_utils.h"
+#include "../include/fxt_edge.h"
+#include "../include/fxt_vertex.h"
 #include "../include/fxt_loop.h"
 #include "../include/fxt_parser.h"
 #include "../include/fxt_math.h"
@@ -100,8 +102,14 @@ loop_extract(char *loop_array[])
   Vertex *vt = (Vertex *)malloc(sizeof(* vt));
   vt = compute_normal(loop);
 
-  vt = NULL;
-  free(vt);
+  // if (loop->loop_type == CURVED_SURRFACE) {
+  //   printf("CURVED_SURRFACE\n");
+  // } else {
+  //   printf("PLANAR_SURFACE\n");
+  // }
+
+  // vt = NULL;
+  // free(vt);
 
   loop->loop_normal = vt;
   // printf("X = %Lg\n", ((Vertex *)loop->loop_normal)->x);
