@@ -11,10 +11,16 @@
 #define DELIMITER ",;"
 
 typedef enum _EdgeType EdgeType;
+typedef enum _FaceType FaceType;
 
 enum _EdgeType {
   ARC,
   LINE
+};
+
+enum _FaceType {
+  FACE,
+  BEND
 };
 
 /* IGES specification entity types. */
