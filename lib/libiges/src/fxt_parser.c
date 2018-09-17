@@ -697,6 +697,27 @@ dsection_get_edge(int entity_ptr, int index)
   return ((EdgeList *)((PsectionEntityData *)ps_object)->entity_data_object)->edges[index - 1];
 }
 
+int
+dsection_get_edge_type(int entity_ptr)
+{
+  gpointer *ds_object = g_hash_table_lookup(dsection_ht, GINT_TO_POINTER(entity_ptr));
+  if (ds_object == NULL) {
+    return -1;
+  }
+
+  int search_key = ((DsectionEntity *)ds_object)->ps_data_ptr;
+  // printf("%d\n", search_key);
+  // printf("%d\n", ((DsectionEntity *)ds_object)->entity_type);
+  gpointer *ps_object = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(search_key));
+
+  if (ps_object == NULL) {
+    return -1;
+  }
+
+  // printf("%s\n",((PsectionEntityData *)ps_object)->entity_name);
+  return ((RBSCurve *)((PsectionEntityData *)ps_object)->entity_data_object)->PROP3;
+}
+
 Loop *
 dsection_get_loop(int entity_ptr)
 {

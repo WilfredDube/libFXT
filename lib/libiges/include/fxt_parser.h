@@ -103,6 +103,7 @@ void print_dsec(PsectionEntityData *ps);
 
 int dsection_get_model_space_curve_type(int ds_index);
 Vertex *dsection_get_vertex(int lookup_key, int index);
+int dsection_get_edge_type(int entity_ptr);
 Edge *dsection_get_edge(int entity_ptr, int index);
 Loop *dsection_get_loop(int entity_ptr);
 void parser_reassign_caller(void);
