@@ -28,6 +28,19 @@
 #include "../include/fxt_loop.h"
 #include "../include/fxt_types.h"
 #include <math.h>
+#include <stdbool.h>
+
+bool compare_vl(Vertex *v1, Vertex *v2)
+{
+  bool truth = false;
+
+  if (v1->x == v2->x && v1->y == v2->y && v1->z == v2->z) {
+    truth = true;
+  }
+
+  return truth;
+}
+
 
 /* Function for computing the normal of a plane.
  * @param loop is the loop representing a plane.
