@@ -742,3 +742,17 @@ dsection_get_model_space_curve_type(int ds_index)
 
   return ((DsectionEntity *)ds)->form_number;
 }
+
+static void
+print_psection(gpointer key, gpointer value, gpointer userdata)
+{
+  // printf("Entity key : %d\n", GPOINTER_TO_INT(key));
+  // printf("Entity name : %s\n", ((PsectionEntityData *)value)->entity_name);
+  // printf("========================\n");
+}
+
+void
+parser_print_psection_ht(void)
+{
+  g_hash_table_foreach(psection_ht, print_psection, NULL);
+}
