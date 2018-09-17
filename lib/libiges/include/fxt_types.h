@@ -10,6 +10,13 @@
 #define LOOPS_MAX 10 /** Maximum number of loops per face. */
 #define DELIMITER ",;"
 
+typedef enum _EdgeType EdgeType;
+
+enum _EdgeType {
+  ARC,
+  LINE
+};
+
 /* IGES specification entity types. */
 /* Point in 3-space (x,y,z) */
 typedef struct _Point Point;
