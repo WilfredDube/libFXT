@@ -46,10 +46,12 @@ Loop *
 loop_extract(char *loop_array[])
 {
   int x = 2, y = 0, k, type;
+  static int id = 1;
   Loop *loop = NULL;
 
   loop = (Loop *) malloc(sizeof(* loop));
   loop->n = utils_to_int(loop_array[1]);
+  loop->loop_id = id;
   loop->loop_type = -1;
 
   while (loop_array[x] != NULL){
