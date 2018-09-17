@@ -79,6 +79,14 @@ loop_extract(char *loop_array[])
     ++y;
   }
 
+  int edge_count = 1;
+  for (size_t i = 0; i < loop->n; i++) {
+    if (loop->edges[i]->edge_type == ARC) {
+      loop->loop_type = CURVED_SURRFACE;
+      break;
+    } else {
+      ++edge_count;
+    }
 
     // printf("LOOP = %Lg\n", (loop->edges[0])->start_vertex->x);
   Vertex *vt = compute_normal(loop);
