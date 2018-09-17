@@ -98,7 +98,8 @@ void get_psection_face(IgesFile *fp, PsectionEntityData *ps);
 void parser_gsection_new(GsectionModelDesc *gsec_model_desc, char *desc_ptr);
 void parser_dsection_new(DsectionEntity *dsec_entity, char *line1, char *line2);
 void parser_find_entity(int lookup_key, void *key, void *value);
-void print_dsec(DsectionEntity *ds);
+// void print_dsec(DsectionEntity *ds);
+void print_dsec(PsectionEntityData *ps);
 
 int dsection_get_model_space_curve_type(int ds_index);
 Vertex *dsection_get_vertex(int lookup_key, int index);
@@ -107,5 +108,7 @@ Loop *dsection_get_loop(int entity_ptr);
 void parser_reassign_caller(void);
 
 PsectionEntityData *psection_entity_object_new(const int pd_pointer, const int ENTITY_TYPE, const char *ENTITY_NAME, void * entity_object);
+
+void parser_print_psection_ht(void);
 
 #endif
