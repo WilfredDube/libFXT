@@ -42,6 +42,18 @@ bool compare_vl(Vertex *v1, Vertex *v2)
 }
 
 
+Vertex *
+compute_line_vector(Edge *edge)
+{
+  Vertex *vt = (Vertex *)malloc(sizeof(* vt));
+
+  vt->x = edge->start_vertex->x - edge->terminate_vertex->x;
+  vt->y = edge->start_vertex->y - edge->terminate_vertex->y;
+  vt->z = edge->start_vertex->z - edge->terminate_vertex->z;
+
+  return vt;
+}
+
 /* Function for computing the normal of a plane.
  * @param loop is the loop representing a plane.
  * @returns the normal vector
