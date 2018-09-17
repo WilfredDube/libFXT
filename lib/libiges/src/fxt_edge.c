@@ -44,6 +44,7 @@ edge_new(int model_space_curve_type, int edge_type, Vertex *start_vertex, Vertex
   Edge *edge = (Edge *)malloc(sizeof(* edge));
 
   edge->model_space_curve_type = model_space_curve_type;
+  edge->edge_type = edge_type;
   edge->start_vertex = start_vertex;
   edge->terminate_vertex = terminate_vertex;
   // printf("%d\n", edge->model_space_curve_type);
@@ -89,6 +90,14 @@ edgelist_extract(char *edgelist_array[])
     */
     Vertex *svt = (Vertex *)dsection_get_vertex(utils_to_int(edgelist_array[x + 1]), utils_to_int(edgelist_array[x + 2]));
     Vertex *tvt = (Vertex *)dsection_get_vertex(utils_to_int(edgelist_array[x + 3]), utils_to_int(edgelist_array[x + 4]));
+
+    int edge_type;
+    if (dsection_get_edge_type(utils_to_int(edgelist_array[x]))) {
+      edge_type = LINE;
+    } else {
+      edge_type = ARC;
+    }
+    // printf("%d\n", edge_type);
 
     if (svt == NULL) {
       // printf("NULL!\n" );
