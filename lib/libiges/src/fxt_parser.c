@@ -87,6 +87,8 @@ parser_init(IgesFile *fp, char *filename)
     exit(EXIT_FAILURE);
   }
 
+  psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
+
   return EXIT_SUCCESS;
 }
 
@@ -116,8 +118,6 @@ get_psection_rbspline_curve(IgesFile *fp, PsectionEntityData *ps)
   char *line = malloc(100);
   char substr[70];
   char *desc_array[PARAM_MAX] = {NULL};
-
-  psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
 
   line = get_line(fp, line);
 
@@ -169,7 +169,7 @@ get_psection_vt_list(IgesFile *fp, PsectionEntityData *ps)
   char substr[70];
   char *desc_array[PARAM_MAX] = {NULL};
 
-  psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
+  // psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
 
   line = get_line(fp, line);
 
@@ -385,6 +385,7 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_type = entity_no;
       ps_object->entity_name = "RATIONAL B-SPLINE CURVE";
       ps_object->entity_data_object = rbscurve_extract(desc_array);
+      // printf("RBSC : %d\n", ps_object->entity_param_ptr);
       parser_add_ps_object(psection_ht, ps_object);
       break;
     case 502:
@@ -392,6 +393,7 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_type = entity_no;
       ps_object->entity_name = "VERTEXT LIST";
       ps_object->entity_data_object = vertexlist_extract(desc_array);
+      // printf("VL : %d\n", ps_object->entity_param_ptr);
       parser_add_ps_object(psection_ht, ps_object);
       /* TODO : IMPORTANT CODE BELOW */
       // vertex_get_coords(NULL, ((VertexList *)ps_object->entity_data_object)->vertices[0]);
@@ -402,6 +404,7 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_type = entity_no;
       ps_object->entity_name = "EDGE LIST";
       ps_object->entity_data_object = edgelist_extract(desc_array);
+      // printf("ED : %d\n", ps_object->entity_param_ptr);
       parser_add_ps_object(psection_ht, ps_object);
       break;
     case 508:
@@ -409,6 +412,7 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_type = entity_no;
       ps_object->entity_name = "LOOP";
       ps_object->entity_data_object = loop_extract(desc_array);
+      // printf("LOOP : %d\n", ps_object->entity_param_ptr);
       parser_add_ps_object(psection_ht, ps_object);
       break;
     case 510:
@@ -416,6 +420,7 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
       ps_object->entity_type = entity_no;
       ps_object->entity_name = "FACE";
       ps_object->entity_data_object = face_extract(desc_array);
+      // printf("FACE : %d\n", ps_object->entity_param_ptr);
       parser_add_ps_object(psection_ht, ps_object);
       break;
   }
@@ -426,15 +431,19 @@ parser_psection_new(PsectionEntityData *ps_object, char *ps_line, int sequence_n
 void
 parser_add_ps_object(GHashTable * ht, PsectionEntityData *ps)
 {
-  // printf("ON ADD>>>>>>>>>>>>\n");
+  // printf("ON ADD>>>>>>>>>>>>%d\n",ps->entity_param_ptr);
   if(g_hash_table_insert(ht, GINT_TO_POINTER(ps->entity_param_ptr), (gpointer)ps) == TRUE){
-    // printf("====================================\n");
+    // gpointer *d = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(32));
+
+    // if (d != NULL) {
     // printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(ps->entity_param_ptr)));
-    // printf("Entity Name : %s\n", ps->entity_name);
+    // printf("Entity Name : %s\n", ((PsectionEntityData *)d)->entity_name);
+    // printf("====================================\n");
+
     // printf("Entity Type : %d\n", ps->entity_type);
     // printf("Data Object : %p\n", (char *)ps->entity_data_object);
     // printf("====================================\n");
-
+    // }
   }
 }
 
@@ -532,6 +541,7 @@ parser_dsection_new(DsectionEntity *dsec_entity, char *line1, char *line2)
 
   get_field(line1, substr, 1, 8);
   dsec_entity->entity_type = utils_to_int(substr);
+  // printf("DS_E : %d\n", dsec_entity->entity_type);
   get_field(line1, substr, 9, 8);
   dsec_entity->ps_data_ptr  = utils_to_int(substr);
   dsec_entity->entity_object = NULL;
@@ -573,11 +583,15 @@ parser_add_ds_object(GHashTable * ht, DsectionEntity *dsec_entity)
 {
   // printf("ON ADD>>>>>>>>>>>>\n");
   if(g_hash_table_insert(ht, GINT_TO_POINTER(dsec_entity->sequence_number), (gpointer)dsec_entity) == TRUE){
-    // printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(dsec_entity->sequence_number)));
-    // printf("SQ : %d\n", dsec_entity->sequence_number);
-    // printf("Entity : %d\n", dsec_entity->entity_type);
-    // printf("====================================\n");
+    gpointer *d = g_hash_table_lookup(dsection_ht, GINT_TO_POINTER(dsec_entity->sequence_number));
 
+    if (d != NULL) {
+      /* code */
+      // printf("KEY : %d\n", GPOINTER_TO_INT(GINT_TO_POINTER(dsec_entity->sequence_number)));
+      // printf("SQ : %d\n", dsec_entity->sequence_number);
+      // printf("Entity : %d\n",((DsectionEntity *) d)->entity_type);
+      // printf("====================================\n");
+    }
   }
 }
 
@@ -585,11 +599,11 @@ void
 parser_find_entity(int lookup_key, void *key, void *value)
 {
   // return (DsectionEntity *)g_hash_table_lookup(dsection_ht, GINT_TO_POINTER(1));
-  gpointer *d = g_hash_table_lookup(dsection_ht, GINT_TO_POINTER(lookup_key));
+  gpointer *p = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(lookup_key));
 
-  if (d) {
+  if (p) {
     /* code */
-    print_dsec((DsectionEntity *)d);
+    print_dsec((PsectionEntityData *)p);
   }
 
   // printf("ON PRINT>>>>>>>>>>>>>>>>>>>>\n");
@@ -597,19 +611,20 @@ parser_find_entity(int lookup_key, void *key, void *value)
 }
 
 void
-print_dsec(DsectionEntity *ds)
+print_dsec(PsectionEntityData *ps)
 {
-  printf("%d\n", ds->entity_type);
+  printf("%s\n", ps->entity_name);
 }
 
 void
 parser_dsection_add_entitydata(gpointer key, gpointer value, gpointer userdata)
 {
   gpointer *obj = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(((DsectionEntity *)value)->ps_data_ptr));
+  // printf(">>>>>>>>>>>%d\n", (((DsectionEntity *)value)->ps_data_ptr));
   if (obj != NULL) {
-    // printf(">%p\n", (VertexList *)((PsectionEntityData *)obj)->entity_data_object);
+    // printf(">%s\n", ((PsectionEntityData *)obj)->entity_name);
     (((DsectionEntity *)value)->entity_object) = ((PsectionEntityData *)obj)->entity_data_object;
-    // printf("%p\n", &(((DsectionEntity *)value)->entity_type));
+    // printf("%d\n", (((DsectionEntity *)value)->entity_type));
     // printf("%p\n", &(((DsectionEntity *)value)->ps_data_ptr));
     // printf("%p\n", (((DsectionEntity *)value)->entity_object));
     // printf("%p\n", &(((DsectionEntity *)value)->structure));
@@ -662,7 +677,6 @@ dsection_get_vertex(int lookup_key, int index)
     // printf("ds NULL\n");
     return NULL;
   }
-  // printf("%d\n", ((DsectionEntity *)ds_object)->ps_data_ptr);
   gpointer *ps_object = g_hash_table_lookup(psection_ht, GINT_TO_POINTER(((DsectionEntity *)ds_object)->ps_data_ptr));
 
   if (ps_object == NULL) {
@@ -692,7 +706,6 @@ dsection_get_edge(int entity_ptr, int index)
     return NULL;
   }
 
-  // printf("%s\n",((PsectionEntityData *)ps_object)->entity_name);
   // printf("X : %Lg\n", ((EdgeList *)((PsectionEntityData *)ps_object)->entity_data_object)->edges[3]->start_vertex->x);
   return ((EdgeList *)((PsectionEntityData *)ps_object)->entity_data_object)->edges[index - 1];
 }
