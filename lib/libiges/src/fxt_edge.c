@@ -39,7 +39,7 @@
 * @returns Edge object.
 */
 static Edge *
-edge_new(int model_space_curve_type, int edge_type, Vertex *start_vertex, Vertex *terminate_vertex)
+edge_new(int model_space_curve_type, int edge_type, int edge_number, Vertex *start_vertex, Vertex *terminate_vertex)
 {
   Edge *edge = (Edge *)malloc(sizeof(* edge));
 
@@ -104,7 +104,7 @@ edgelist_extract(char *edgelist_array[])
     }
     // printf("Start %d: %Lg, %Lg, %Lg\n", y, tvt->x, tvt->y, tvt->z);
 
-    edge = edge_new(curve_type, edge_type, svt, tvt);
+    edge = edge_new(curve_type, edge_type, (y + 1), svt, tvt);
 
     edgelist->edges[y] = (Edge *)malloc(sizeof(Edge *));
     edgelist->edges[y] = edge;
