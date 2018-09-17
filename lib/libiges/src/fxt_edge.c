@@ -87,8 +87,6 @@ edgelist_extract(char *edgelist_array[])
     * edgelist_array[x + 3] - Pointer to the DE of the Vertex List Entity for the terminate vertex
     * edgelist_array[x + 2] - index value for the vertex in the Vertex List
     */
-
-    // printf("%d\n", utils_to_int(edgelist_array[x + 3]));
     Vertex *svt = (Vertex *)dsection_get_vertex(utils_to_int(edgelist_array[x + 1]), utils_to_int(edgelist_array[x + 2]));
     Vertex *tvt = (Vertex *)dsection_get_vertex(utils_to_int(edgelist_array[x + 3]), utils_to_int(edgelist_array[x + 4]));
 

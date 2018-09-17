@@ -75,7 +75,5 @@ rbscurve_extract(char *ps_rbsc[])
     rbscurve->control_points[i] = utils_to_float(ps_rbsc[x]);
   }
 
-  // printf("%Le\n", rbscurve->control_points[0]);
-
   return rbscurve;
 }

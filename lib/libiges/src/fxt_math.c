@@ -36,7 +36,7 @@
 Vertex *compute_normal(Loop *loop){
   // printf("LOOP = %d\n", (int)((Edge *)loop->edges[0])->model_space_curve_type);
   // Vertex *vt_s = get_start_vertex(((Edge *)loop->edges[0]));
-  // printf("%Lf\n", vt_s->x);
+  // printf("%Lg\n", ((Edge *)loop->edges[0])->start_vertex->x);
   // printf("%p\n", loop->edges);
 
   return NULL;
