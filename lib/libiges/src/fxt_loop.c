@@ -95,9 +95,16 @@ loop_extract(char *loop_array[])
     }
   }
 
+  Vertex *vt = (Vertex *)malloc(sizeof(* vt));
+  vt = compute_normal(loop);
 
   vt = NULL;
   free(vt);
 
+  loop->loop_normal = vt;
+  // printf("X = %Lg\n", ((Vertex *)loop->loop_normal)->x);
+  // printf("Y = %Lg\n", ((Vertex *)loop->loop_normal)->y);
+  // printf("Z = %Lg\n", ((Vertex *)loop->loop_normal)->z);
+  // printf("++++++++++++\n");
   return loop;
 }
