@@ -9,6 +9,7 @@ typedef void * List;
 
 struct _Loop {
   int n; /**< Number of loop tuples in list (N > 0)*/
+  LoopType loop_type;
   Edge *edges[LOOP_MAX]; /**< Array of edges */
   Vertex *vertices[LOOP_MAX]; /**< Array of vertices */
 };
