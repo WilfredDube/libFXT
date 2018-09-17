@@ -41,6 +41,17 @@ bool compare_vl(Vertex *v1, Vertex *v2)
   return truth;
 }
 
+Vertex *
+compute_cross_product(Vertex *a, Vertex *b)
+{
+  Vertex *normal = (Vertex *)malloc(sizeof(* normal));
+
+  normal->x = (a->y * b->z) - (a->z * b->y);
+  normal->y = - ((a->x * b->z) - (a->z * b->x));
+  normal->z = (a->x * b->y) - (a->y * b->x);
+
+  return normal;
+}
 
 Vertex *
 compute_line_vector(Edge *edge)
