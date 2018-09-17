@@ -11,11 +11,17 @@
 #define DELIMITER ",;"
 
 typedef enum _EdgeType EdgeType;
+typedef enum _LoopType LoopType;
 typedef enum _FaceType FaceType;
 
 enum _EdgeType {
   ARC,
   LINE
+};
+
+enum _LoopType {
+  PLANAR_SURFACE,
+  CURVED_SURRFACE
 };
 
 enum _FaceType {
