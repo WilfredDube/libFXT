@@ -6,6 +6,7 @@
 #define EDGES_MAX 100000
 
 struct _Edge {
+  int edge_number;
   int model_space_curve_type;
   EdgeType edge_type;
   Vertex *start_vertex;
