@@ -44,6 +44,7 @@ edge_new(int model_space_curve_type, int edge_type, int edge_number, Vertex *sta
   Edge *edge = (Edge *)malloc(sizeof(* edge));
 
   edge->model_space_curve_type = model_space_curve_type;
+  edge->edge_number = edge_number;
   edge->edge_type = edge_type;
   edge->start_vertex = start_vertex;
   edge->terminate_vertex = terminate_vertex;
