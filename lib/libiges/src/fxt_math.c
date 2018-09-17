@@ -28,6 +28,7 @@
 #include "../include/fxt_loop.h"
 #include "../include/fxt_types.h"
 #include <math.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 bool compare_vl(Vertex *v1, Vertex *v2)
@@ -69,11 +70,32 @@ compute_line_vector(Edge *edge)
  * @param loop is the loop representing a plane.
  * @returns the normal vector
  */
-Vertex *compute_normal(Loop *loop){
-  // printf("LOOP = %d\n", (int)((Edge *)loop->edges[0])->model_space_curve_type);
-  // Vertex *vt_s = get_start_vertex(((Edge *)loop->edges[0]));
-  // printf("%Lg\n", ((Edge *)loop->edges[0])->start_vertex->x);
-  // printf("%p\n", loop->edges);
+Vertex *
+compute_normal(Loop *loop)
+{
+  Edge *edge1 = NULL, *edge2 = NULL;
 
-  return NULL;
+  edge1 = loop->edges[0];
+  for (size_t i = 0; i < (loop->n); i++) {
+    if (edge1->edge_number == loop->edges[i]->edge_number) {
+      continue;
+    }
+
+    if (compare_vl(edge1->start_vertex, ((Edge *)loop->edges[i])->start_vertex) ||
+        compare_vl(edge1->terminate_vertex, ((Edge *)loop->edges[i])->start_vertex) ||
+        compare_vl(edge1->terminate_vertex, ((Edge *)loop->edges[i])->terminate_vertex) ||
+        compare_vl(edge1->start_vertex, ((Edge *)loop->edges[i])->terminate_vertex)) {
+          edge2 = ((Edge *)loop->edges[i]);
+          // printf("%d\n", edge2->edge_number);
+          break;
+    }
+
+  }
+
+  Vertex *vta = compute_line_vector(edge1);
+  Vertex *vtb = compute_line_vector(edge2);
+
+  vta = compute_cross_product(vta, vtb);
+
+  return vta;
 }
