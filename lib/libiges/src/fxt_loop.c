@@ -50,6 +50,7 @@ loop_extract(char *loop_array[])
 
   loop = (Loop *) malloc(sizeof(* loop));
   loop->n = utils_to_int(loop_array[1]);
+  loop->loop_type = -1;
 
   while (loop_array[x] != NULL){
 
