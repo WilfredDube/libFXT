@@ -121,3 +121,16 @@ compute_normal(Loop *loop)
 
   return vta;
 }
+
+long double
+compute_length(Edge *edge)
+{
+  Vertex *vt = (Vertex *)malloc(sizeof(* vt));
+
+  vt->x = edge->start_vertex->x - edge->terminate_vertex->x;
+  vt->y = edge->start_vertex->y - edge->terminate_vertex->y;
+  vt->z = edge->start_vertex->z - edge->terminate_vertex->z;
+
+  return compute_euclidean_norm(vt);
+}
+
