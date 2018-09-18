@@ -220,8 +220,6 @@ get_psection_edge_list(IgesFile *fp, PsectionEntityData *ps)
   char substr[70];
   char *desc_array[PARAM_MAX] = {NULL};
 
-  // psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
-
   line = get_line(fp, line);
 
   while (line){
@@ -272,8 +270,6 @@ get_psection_loop(IgesFile *fp, PsectionEntityData *ps)
   char substr[70];
   char *desc_array[PARAM_MAX] = {NULL};
 
-  // psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
-
   line = get_line(fp, line);
 
   while (line){
@@ -323,8 +319,6 @@ get_psection_face(IgesFile *fp, PsectionEntityData *ps)
   char *line = malloc(100);
   char substr[70];
   char *desc_array[PARAM_MAX] = {NULL};
-
-  // psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
 
   line = get_line(fp, line);
 
