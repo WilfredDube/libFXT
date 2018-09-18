@@ -78,6 +78,16 @@ compute_euclidean_norm(Vertex *vt)
   return sqrt(A + B + C);
 }
 
+long double
+compute_dot_product(Vertex *vt1, Vertex *vt2)
+{
+  long double A = vt1->x * vt2->x;
+  long double B = vt1->y * vt2->y;
+  long double C = vt1->z * vt2->z;
+
+  return (A + B + C);
+}
+
 /* Function for computing the normal of a plane.
  * @param loop is the loop representing a plane.
  * @returns the normal vector
