@@ -134,3 +134,14 @@ compute_length(Edge *edge)
   return compute_euclidean_norm(vt);
 }
 
+long double
+distance_btwn_planes(Vertex *vt1, Vertex *vt2)
+{
+  long double num = ((vt1->x) * (vt2->x)) + ((vt1->y) * (vt2->y)) + ((vt1->z) *(vt2->z));
+  long double den = compute_euclidean_norm(vt1);
+
+  long double distance = num / den;
+
+  return distance;
+}
+
