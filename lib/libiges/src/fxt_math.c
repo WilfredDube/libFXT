@@ -145,3 +145,24 @@ distance_btwn_planes(Vertex *vt1, Vertex *vt2)
   return distance;
 }
 
+long double
+compute_angle(Vertex *n1, Vertex *n2)
+{
+  long double cosine, angle;
+  long double dotp = compute_dot_product(n1, n2);
+
+  long double en1 = compute_euclidean_norm(n1);
+  long double en2 = compute_euclidean_norm(n2);
+
+  if (dotp == 0) {
+    cosine = 0;
+  } else {
+    cosine = dotp / (en1 * en2);
+  }
+
+  long double value = 180.0 / PI;
+
+  angle = acos(cosine) * value;
+
+  return angle;
+}
