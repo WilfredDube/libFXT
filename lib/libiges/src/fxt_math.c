@@ -31,6 +31,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#define PI 3.14159265358979323
+
 bool compare_vl(Vertex *v1, Vertex *v2)
 {
   bool truth = false;
