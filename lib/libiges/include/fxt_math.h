@@ -8,7 +8,7 @@
 Vertex *compute_normal(Loop *loop);
 long double compute_length(Edge *edge);
 long double compute_bend_length(Edge *edge);
-float compute_angle(Vertex *norm1, Vertex *norm2);
+long double compute_angle(Vertex *norm1, Vertex *norm2);
 bool issideplane(Loop *edge_loop, long double thickness);
 long double compute_thickness(Loop *loop);
 bool is_parallel(Vertex *norm1, Vertex *norm2);
