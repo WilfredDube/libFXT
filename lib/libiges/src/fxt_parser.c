@@ -167,9 +167,7 @@ get_psection_vt_list(IgesFile *fp, PsectionEntityData *ps)
   char temp_str[PS_MAX] = "";
   char *line = malloc(100);
   char substr[70];
-  char *desc_array[PARAM_MAX] = {NULL};
-
-  // psection_ht = g_hash_table_new_full(g_direct_hash, g_direct_equal, NULL, NULL);
+  char *desc_array[PARAM_MAX] = {NULL}
 
   line = get_line(fp, line);
 
