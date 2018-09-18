@@ -68,6 +68,16 @@ compute_line_vector(Edge *edge)
   return vt;
 }
 
+long double
+compute_euclidean_norm(Vertex *vt)
+{
+  long double A = vt->x * vt->x;
+  long double B = vt->y * vt->y;
+  long double C = vt->z * vt->z;
+
+  return sqrt(A + B + C);
+}
+
 /* Function for computing the normal of a plane.
  * @param loop is the loop representing a plane.
  * @returns the normal vector
